@@ -1,0 +1,19 @@
+.button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 70px;
+    height: 100%;
+
+    padding: var(--spacing-xxxs) 0;
+}
+
+.title {
+    font-size: var(--body-size-xs);
+}
+
+.button.active .title {
+    color: var(--accent-1-hover);
+}

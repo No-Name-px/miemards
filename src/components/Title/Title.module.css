@@ -1,0 +1,7 @@
+.title {
+    display: inline-block;
+
+    font-size: var(--title-size-l);
+    font-family: var(--title-font);
+    font-weight: var(--title-weight-bold);
+}

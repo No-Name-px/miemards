@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 600;
+
+    /* Браузер сначала попробует найти шрифт локально */
+    src:
+        local('SF Pro Display, Semibold'),
+        url('./assets/fonts/SF-Pro-Display-Semibold.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 400;
+
+    src:
+        local('SF Pro Text, Regular'),
+        url('./assets/fonts/SFProText-Regular.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'SF Pro Text';
+    font-style: normal;
+    font-weight: 600;
+
+    src:
+        local('SF Pro Text, Bold'),
+        url('./assets/fonts/SFProText-Bold.ttf') format('ttf');
+}

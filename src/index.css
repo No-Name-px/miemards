@@ -1,0 +1,108 @@
+@import url('./fonts.css');
+
+:root {
+    /* Background colors */
+    --background-color-primary: #ffffff;
+    --background-color-secondary: #f9f9f9f0;
+
+    /* Text colors */
+    --text-primary: #000000cc;
+    --text-secondary: #0000008a;
+    --text-tetriary: #00000066;
+    --text-primary-on-dark: #ffffff;
+    --text-secondary-on-dark: #ffffffb8;
+    --text-primary-on-dark: #ffffff80;
+
+    /* Accent colors */
+    --accent-1: #ffb74c;
+    --accent-1-hover: #f8a34d;
+    --accent-1-pressed: #f89129;
+    --accent-2: #ff6c63;
+    --accent-2-hover: #ee5d5d;
+    --accent-2-pressed: #e54040;
+
+    /* Addition colors */
+    --add-palette-1: #ffd450;
+    --add-palette-2: #ffb74c;
+    --add-palette-3: #f8a34d;
+
+    --add-palette-4: #ff8863;
+    --add-palette-5: #ee805d;
+    --add-palette-6: #ff7b76;
+
+    --add-palette-7: #ff78a7;
+    --add-palette-8: #d45d8c;
+    --add-palette-9: #bc71c9;
+
+    --add-palette-10: #a381ff;
+    --add-palette-11: #8f75d1;
+    --add-palette-12: #7caeff;
+
+    --add-palette-13: #65a7e0;
+    --add-palette-14: #4dc3f7;
+    --add-palette-15: #4bd0e1;
+
+    --add-palette-16: #4eb6c2;
+    --add-palette-17: #4fbdb2;
+    --add-palette-18: #4da197;
+
+    --add-palette-19: #73b077;
+    --add-palette-20: #aed57f;
+
+    /* Titles */
+    --title-size-m: 20px;
+    --title-size-l: calc(var(--title-size-m) * 1.5);
+    --title-weight-bold: 600;
+    --title-font: 'SF Pro Display', Helvetica, Arial, san-serif;
+
+    /* Bodies */
+    --body-size-m: 15px;
+    --body-size-xs: calc(var(--body-size-m) / 3 * 2);
+    --body-weight-regular: 400;
+    --body-weight-bold: 600;
+    --body-font: 'SF Pro Text', Helvetica, Arial, san-serif;
+
+    /* Shadows */
+    --shadow-medium: 0px 6px 34px 0px #0000001f;
+    --shadow-small: 0px 5px 20px 0px #0000001a;
+    --shadow-popup: 0px 20px 50px 0px #00000033;
+
+    /* Margin / Padding */
+    --spacing-tiny: calc(var(--spacing-m) * 0.1); /* 2px */
+    --spacing-xxxs: calc(var(--spacing-m) * 0.2); /* 4px */
+    --spacing-xxs: calc(var(--spacing-m) * 0.4); /* 8px */
+    --spacing-xs: calc(var(--spacing-m) * 0.6); /* 12px */
+    --spacing-s: calc(var(--spacing-m) * 0.8); /* 16px */
+    --spacing-m: 20px;
+    --spacing-l: calc(var(--spacing-m) * 1.2); /* 24px */
+    --spacing-xl: calc(var(--spacing-m) * 1.6); /* 32px */
+    --spacing-xxl: calc(var(--spacing-m) * 2.4); /* 48px */
+
+    /* radius */
+    --radius-tiny: calc(var(--radius-m) * 0.1); /* 2px */
+    --radius-xxxs: calc(var(--radius-m) * 0.2); /* 4px */
+    --radius-xxs: calc(var(--radius-m) * 0.4); /* 8px */
+    --radius-xs: calc(var(--radius-m) * 0.6); /* 12px */
+    --radius-s: calc(var(--radius-m) * 0.8); /* 16px */
+    --radius-m: 20px;
+    --radius-l: calc(var(--radius-m) * 1.2); /* 24px */
+    --radius-xl: calc(var(--radius-m) * 1.6); /* 32px */
+    --radius-xxl: calc(var(--radius-m) * 2.4); /* 48px */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--body-font);
+    color: var(--text-primary);
+    font-weight: var(--body-weight-regular);
+    font-size: var(--body-size-m);
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+}

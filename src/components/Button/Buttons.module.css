@@ -1,0 +1,16 @@
+.button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: var(--spacing-s) 0;
+    border-radius: var(--radius-xxs);
+}
+
+.buttonDefault {
+    background-color: var(--background-color-secondary);
+    color: var(--add-palette-14);
+}
+
+.buttonAccent {
+    background-color: var(--accent-1);
+}

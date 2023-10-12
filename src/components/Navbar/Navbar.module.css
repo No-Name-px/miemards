@@ -1,0 +1,10 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--background-color-secondary);
+}
+
+.navItem {
+    height: 100%;
+    text-decoration: none;
+}

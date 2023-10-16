@@ -8,6 +8,7 @@ import Layout from './pages/Layout';
 import AuthPage from './pages/AuthPage';
 import RegisterPage from './pages/RegisterPage';
 import ErrorPage from './pages/ErrorPage';
+import ProfilePageEdit from './pages/ProfilePageEdit';
 
 function App() {
     return (
@@ -18,7 +19,11 @@ function App() {
                     <Route path="decks" element={<DecksPage />} />
                     <Route path="rating" element={<RatingPage />} />
                     <Route path="statistic" element={<StatisticPage />} />
-                    <Route path="profile" element={<ProfilePage />} />
+                    <Route path="profile" element={<ProfilePage />}></Route>
+                    <Route
+                        path="profile/edit"
+                        element={<ProfilePageEdit />}
+                    ></Route>
                 </Route>
                 <Route path="/auth" element={<AuthPage></AuthPage>}></Route>
                 <Route

@@ -1,0 +1,137 @@
+[
+    {
+        "name": "Лесные животные",
+        "wordsAll": 123,
+        "wordsLearned": 23,
+        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
+        "id": 1,
+        "cards": [
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Инструменты",
+        "wordsAll": 123,
+        "wordsLearned": 23,
+        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
+        "id": 2,
+        "cards": [
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Инструменты",
+        "wordsAll": 123,
+        "wordsLearned": 23,
+        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
+        "id": 3,
+        "cards": [
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Инструменты",
+        "wordsAll": 123,
+        "wordsLearned": 23,
+        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
+        "id": 4,
+        "cards": [
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            }
+        ]
+    },
+    {
+        "name": "Инструменты",
+        "wordsAll": 123,
+        "wordsLearned": 23,
+        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
+        "id": 5,
+        "cards": [
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            },
+            {
+                "wordEN": "fox",
+                "wordRU": "Лиса",
+                "description": "То же, что лисица.",
+                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+            }
+        ]
+    }
+]

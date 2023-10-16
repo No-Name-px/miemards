@@ -17,4 +17,9 @@
 
 .title {
     font-size: var(--body-size-xs);
+    color: var(--accent-2);
+}
+
+.icon {
+    fill: var(--accent-2);
 }

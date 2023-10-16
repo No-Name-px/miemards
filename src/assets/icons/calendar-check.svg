@@ -1,11 +1,11 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="#9299A2" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_67_192707" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="20" height="20">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M21.9999 6.5H2V17.5C2 19.7091 3.79086 21.5 6 21.5H15.5V15H21.9999V6.5ZM16.4429 10.6802L10.7426 16.3806L6.5 12.1379L6.85346 11.7845C7.6345 11.0034 8.90086 11.0034 9.68192 11.7844L10.7426 12.8451L13.2518 10.3358C14.0194 9.56825 15.259 9.55305 16.0451 10.3015L16.4429 10.6802Z" fill="url(#paint0_linear_67_192707)"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M17.9999 2.5H2V6.5H21.9999C21.9999 4.29086 20.2091 2.5 17.9999 2.5Z" fill="url(#paint1_linear_67_192707)"/>
 <path opacity="0.4" d="M22 15L15.5 15L15.5 21.5L22 15Z" fill="black"/>
 </mask>
 <g mask="url(#mask0_67_192707)">
-<path d="M0 0H24V24H0V0Z" fill="#9299A2"/>
+<path d="M0 0H24V24H0V0Z" fill="current"/>
 </g>
 <defs>
 <linearGradient id="paint0_linear_67_192707" x1="20.4999" y1="19.2778" x2="3.91835" y2="1.21262" gradientUnits="userSpaceOnUse">

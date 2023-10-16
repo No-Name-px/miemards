@@ -1,0 +1,6 @@
+.progressCounter {
+    color: var(--text-primary-on-dark);
+    padding: var(--spacing-tiny) var(--spacing-xxs);
+    background-color: var(--accent-1);
+    border-radius: 1rem;
+}

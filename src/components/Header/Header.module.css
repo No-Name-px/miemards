@@ -1,0 +1,17 @@
+.title {
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.iconContainer {
+    display: flex;
+    align-items: center;
+    margin-right: var(--spacing-s);
+}
+
+.edit {
+    margin-left: var(--spacing-xxs);
+}

@@ -1,0 +1,4 @@
+.title {
+    font-weight: var(--body-weight-bold);
+    font-size: var(--title-size-m);
+}

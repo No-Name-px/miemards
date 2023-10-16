@@ -1,0 +1,13 @@
+.inputBlock {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-top: var(--spacing-l);
+    gap: var(--spacing-xs);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}

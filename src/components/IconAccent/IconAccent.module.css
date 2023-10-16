@@ -1,0 +1,16 @@
+.container {
+    box-sizing: content-box;
+    border-radius: 50%;
+}
+
+.container.sizeS {
+    padding: var(--spacing-xxs);
+    height: var(--icon-size-s);
+    width: var(--icon-size-s);
+}
+
+.container.sizeM {
+    padding: var(--spacing-xxs);
+    height: var(--icon-size-m);
+    width: var(--icon-size-m);
+}

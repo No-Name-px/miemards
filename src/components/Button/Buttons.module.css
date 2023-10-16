@@ -8,7 +8,7 @@
 
 .buttonDefault {
     background-color: var(--background-color-secondary);
-    color: var(--add-palette-14);
+    color: var(--accent-1);
 }
 
 .buttonAccent {

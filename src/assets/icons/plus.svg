@@ -1,10 +1,10 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="#9299A2" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_67_192827)">
 <mask id="mask0_67_192827" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
 <path d="M10.6795 10.6795V3.82114C10.6795 3.09008 11.2687 2.5 12 2.5C12.7256 2.5 13.3205 3.09655 13.3205 3.82114V10.6795H20.1789C20.9099 10.6795 21.5 11.2687 21.5 12C21.5 12.7256 20.9035 13.3205 20.1789 13.3205H13.3205V20.1789C13.3205 20.9099 12.7313 21.5 12 21.5C11.2744 21.5 10.6795 20.9035 10.6795 20.1789V13.3205H3.82114C3.09008 13.3205 2.5 12.7313 2.5 12C2.5 11.2744 3.09655 10.6795 3.82114 10.6795H10.6795Z" fill="black"/>
 </mask>
 <g mask="url(#mask0_67_192827)">
-<rect width="24" height="24" fill="#9299A2"/>
+<rect width="24" height="24" fill="current"/>
 </g>
 </g>
 <defs>

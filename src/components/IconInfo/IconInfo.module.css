@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    align-items: center;
+    margin: var(--spacing-xxs) 0;
+}
+
+.content {
+    margin-left: var(--spacing-s);
+}

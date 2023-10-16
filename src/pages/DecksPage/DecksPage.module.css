@@ -1,0 +1,29 @@
+.decks {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--spacing-s);
+    gap: var(--spacing-m);
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.progress {
+    margin-left: var(--spacing-xxxs);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.deckCard {
+    display: flex;
+    align-items: center;
+}
+
+.play {
+    margin-left: var(--spacing-xs);
+}

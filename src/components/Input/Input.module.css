@@ -1,0 +1,33 @@
+.container {
+    position: relative;
+}
+
+.input {
+    border: none;
+    outline: none;
+
+    width: 100%;
+    border-radius: var(--radius-s);
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    padding-top: calc(var(--spacing-xxs) + var(--body-size-xs));
+    background-color: var(--background-color-secondary);
+}
+
+.label {
+    top: 50%;
+    left: var(--spacing-xs);
+    position: absolute;
+    transform-origin: top left;
+    transition: all 0.2s ease-out;
+    transform: translate(0, -50%);
+    color: var(--text-tetriary);
+}
+
+.container:focus-within label,
+.container.active label {
+    font-size: var(--body-size-xs);
+    top: calc(50% - var(--body-size-xs));
+}
+
+.active {
+}

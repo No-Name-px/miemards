@@ -1,11 +1,15 @@
-import { useState } from 'react';
 import styles from './ActionButton.module.css';
 
-export default function ActionButton() {
-    const [title, setTitle] = useState('Add desk');
+interface Props {
+    title?: string;
+    icon?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+}
+
+export default function ActionButton(props: Props) {
+    const { title, icon: Icon } = props;
     return (
         <div className={styles.button}>
-            <div>+</div>
+            {Icon && <Icon className={styles.icon}></Icon>}
             <p className={styles.title}>{title}</p>
         </div>
     );

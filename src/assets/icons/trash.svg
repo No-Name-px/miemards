@@ -1,9 +1,9 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="#9299A2" xmlns="http://www.w3.org/2000/svg">
 <mask id="mask0_67_192824" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="5" y="1" width="14" height="20">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M7 3C5.89543 3 5 3.89543 5 5V6H19V5C19 3.89543 18.1046 3 17 3H15L14.5937 2.3906C14.2228 1.8342 13.5983 1.5 12.9296 1.5H11.0704C10.4017 1.5 9.7772 1.8342 9.40627 2.3906L9 3H7ZM18 7.5H6L6.79419 18.2216C6.91024 19.7882 8.21512 21 9.786 21H14.214C15.7849 21 17.0898 19.7882 17.2058 18.2216L18 7.5Z" fill="url(#paint0_linear_67_192824)"/>
 </mask>
 <g mask="url(#mask0_67_192824)">
-<path d="M0 0H24V24H0V0Z" fill="#9299A2"/>
+<path d="M0 0H24V24H0V0Z" fill="current"/>
 </g>
 <defs>
 <linearGradient id="paint0_linear_67_192824" x1="6" y1="8.4" x2="19.1158" y2="18.6012" gradientUnits="userSpaceOnUse">

@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import { IconAccentSizeEnum, IconAccentTypeEnum } from '../../types/ui.d';
+import { IconAccentSizeEnum, IconAccentTypeEnum } from '../../types/ui';
 import styles from './IconAccent.module.css';
 import cn from 'classnames';
 
 interface Props {
-    icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>> | string;
     colorFirst?: string;
     colorSecond?: string;
     type?: keyof typeof IconAccentTypeEnum;
@@ -51,7 +51,20 @@ export default function IconAccent(props: Props) {
             })}
             style={{ backgroundColor: colorSchemeMap[type].backgroundColor }}
         >
-            <Icon fill={colorSchemeMap[type].iconColor}></Icon>
+            {typeof Icon !== 'string' && (
+                <Icon fill={colorSchemeMap[type].iconColor}></Icon>
+            )}
+            {typeof Icon === 'string' && (
+                <div
+                    className={styles.numberIcon}
+                    style={{
+                        color: colorSchemeMap[type].iconColor,
+                        fontSize: `${0.6 + 1 / Icon.length}rem`,
+                    }}
+                >
+                    {Icon}
+                </div>
+            )}
         </div>
     );
 }

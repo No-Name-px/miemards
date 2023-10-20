@@ -14,3 +14,12 @@
     height: var(--icon-size-m);
     width: var(--icon-size-m);
 }
+
+.numberIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-weight: var(--body-weight-bold);
+}

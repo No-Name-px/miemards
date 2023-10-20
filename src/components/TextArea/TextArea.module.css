@@ -1,0 +1,39 @@
+.container {
+    position: relative;
+    border-radius: var(--radius-s);
+    padding: var(--spacing-xxs) var(--spacing-xs);
+    padding-top: calc(var(--spacing-xxs) + var(--body-size-xs));
+    background-color: var(--background-color-secondary);
+}
+
+.textarea {
+    border: none;
+    outline: none;
+    background: transparent;
+
+    width: 100%;
+
+    resize: none;
+}
+
+.label {
+    top: calc(
+        (var(--spacing-xxs) * 2 + var(--body-size-xs) + var(--body-size-m)) / 2
+    );
+    left: var(--spacing-xs);
+    position: absolute;
+    transform-origin: top left;
+    transition: all 0.2s ease-out;
+    transform: translate(0, -50%);
+    color: var(--text-tetriary);
+}
+
+.container:focus-within label,
+.container.active label {
+    font-size: var(--body-size-xs);
+    top: var(--spacing-xxs);
+    transform: translate(0, 0);
+}
+
+.active {
+}

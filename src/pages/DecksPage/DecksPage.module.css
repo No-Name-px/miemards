@@ -19,6 +19,14 @@
     align-items: center;
 }
 
+.description {
+    margin-top: var(--spacing-xxxs);
+}
+
+.cardLink {
+    text-decoration: none;
+}
+
 .deckCard {
     display: flex;
     align-items: center;

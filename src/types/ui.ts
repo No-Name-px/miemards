@@ -12,3 +12,8 @@ export enum IconAccentSizeEnum {
     s = 's',
     m = 'm',
 }
+
+export interface Tab {
+    name: string;
+    url: string;
+}

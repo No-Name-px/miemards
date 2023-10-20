@@ -1,12 +1,12 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="#9299A2" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0_67_192671" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="2" width="18" height="20">
-<path d="M12 2L21 11V19C21 20.6569 19.6569 22 18 22H15V15H9V22H3V11L12 2Z" fill="url(#paint0_linear_67_192671)"/>
+<mask id="mask0_324_26905" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="2" width="18" height="20">
+<path d="M12 2L21 11V19C21 20.6569 19.6569 22 18 22H15V15H9V22H3V11L12 2Z" fill="url(#paint0_linear_324_26905)"/>
 </mask>
-<g mask="url(#mask0_67_192671)">
+<g mask="url(#mask0_324_26905)">
 <rect width="24" height="24" fill="current"/>
 </g>
 <defs>
-<linearGradient id="paint0_linear_67_192671" x1="-1.58727" y1="22" x2="15.0322" y2="0.653402" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_324_26905" x1="-1.58727" y1="22" x2="15.0322" y2="0.653402" gradientUnits="userSpaceOnUse">
 <stop/>
 <stop offset="1" stop-opacity="0.61"/>
 </linearGradient>

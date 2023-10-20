@@ -1,0 +1,34 @@
+.nav {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: var(--spacing-tiny);
+    background-color: var(--background-color-secondary);
+
+    border-radius: var(--radius-xxs);
+}
+
+.link {
+    text-decoration: none;
+    display: flex;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+    border: none;
+    font-weight: var(--body-weight-bold);
+
+    padding: calc(var(--spacing-xxs) - var(--spacing-tiny));
+    border-radius: calc(var(--spacing-xxxs) + var(--spacing-tiny));
+
+    transition: all 0.2s linear;
+}
+
+.button.active {
+    background-color: var(--background-color-primary);
+    box-shadow: var(--shadow-small);
+}

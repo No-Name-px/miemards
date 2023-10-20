@@ -1,0 +1,35 @@
+.wrapper {
+    height: 100%;
+}
+
+.content {
+    height: 60%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-position: bottom center;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+}
+
+.logoContainer {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.buttons {
+    height: 40%;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}

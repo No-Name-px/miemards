@@ -38,7 +38,7 @@ export default function Navbar(props: Props) {
             <NavLink to="/statistic" className={styles.navItem}>
                 {({ isActive }) => (
                     <NavButton
-                        title="Статистика"
+                        title="Аналитика"
                         icon={Analytic}
                         isActive={isActive}
                     ></NavButton>

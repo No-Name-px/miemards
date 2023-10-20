@@ -15,6 +15,10 @@
     box-shadow: var(--shadow-medium);
 }
 
+.invisible {
+    opacity: 0;
+}
+
 .title {
     font-size: var(--body-size-xs);
     color: var(--accent-2);

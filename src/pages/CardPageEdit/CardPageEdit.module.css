@@ -1,0 +1,18 @@
+.cardSides {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+    margin-top: var(--spacing-m);
+}
+
+.cardContent {
+    margin-top: var(--spacing-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.image {
+    width: 100%;
+    border-radius: var(--radius-xs);
+}

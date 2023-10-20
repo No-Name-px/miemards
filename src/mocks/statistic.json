@@ -1,0 +1,23 @@
+{
+    "day": {
+        "wordsAll": 15,
+        "rating": 5,
+        "decksLearnedPartly": 4,
+        "decksLearnedAll": 0,
+        "games": 10
+    },
+    "week": {
+        "wordsAll": 34,
+        "rating": 7,
+        "decksLearnedPartly": 7,
+        "decksLearnedAll": 1,
+        "games": 30
+    },
+    "allTime": {
+        "wordsAll": 63,
+        "rating": 10,
+        "decksLearnedPartly": 10,
+        "decksLearnedAll": 4,
+        "games": 55
+    }
+}

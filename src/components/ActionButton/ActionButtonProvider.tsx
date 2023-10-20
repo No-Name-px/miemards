@@ -1,19 +1,37 @@
-import { Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import ActionButton from './ActionButton';
 import Plus from '../../assets/icons/plus.svg?react';
-// import Start from '../../assets/icons/media-play.svg?react';
+import Play from '../../assets/icons/media-play.svg?react';
+import styles from './ActionButtonProvider.module.css';
 
 export default function ActionButtonProvider() {
     return (
         <Routes>
             <Route
                 path="decks"
-                element={<ActionButton title="Add deck" icon={Plus} />}
+                element={
+                    <NavLink to="create" className={styles.link}>
+                        <ActionButton title="Колоду" icon={Plus} />
+                    </NavLink>
+                }
             />
-            <Route path="rating" element={<ActionButton />} />
-            <Route path="statistic" element={<ActionButton />} />
-            <Route path="profile" element={<ActionButton />}></Route>
-            <Route path="profile/edit" element={<ActionButton />}></Route>
+            <Route
+                path="decks/:deckId/edit"
+                element={
+                    <NavLink to="/new-card-test-url" className={styles.link}>
+                        <ActionButton title="Слово" icon={Plus} />
+                    </NavLink>
+                }
+            />
+            <Route
+                path="decks/:deckId"
+                element={
+                    <NavLink to="play" className={styles.link}>
+                        <ActionButton title="Играть" icon={Play} />
+                    </NavLink>
+                }
+            />
+            <Route path="*" element={<ActionButton invisible />}></Route>
         </Routes>
     );
 }

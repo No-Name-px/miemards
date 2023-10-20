@@ -1,136 +1,118 @@
 [
     {
-        "name": "Лесные животные",
+        "name": "Инструменты",
         "wordsAll": 123,
         "wordsLearned": 23,
-        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
-        "id": 1,
+        "description": "Набор слов, отражающих разнообразие инструментов, используемых в различных областях.",
+        "id": 8,
         "cards": [
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Hammer",
+                "wordRU": "Молоток",
+                "description": "Инструмент для забивания гвоздей или разбивания объектов.",
+                "img": "https://your-image-url-here.com/hammer.jpg"
             },
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Screwdriver",
+                "wordRU": "Отвертка",
+                "description": "Инструмент для закручивания и откручивания винтов.",
+                "img": "https://your-image-url-here.com/screwdriver.jpg"
             },
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Wrench",
+                "wordRU": "Гаечный ключ",
+                "description": "Инструмент для закручивания и откручивания гаек и болтов.",
+                "img": "https://your-image-url-here.com/wrench.jpg"
+            },
+            {
+                "wordEN": "Saw",
+                "wordRU": "Пила",
+                "description": "Инструмент для резки дерева или других материалов.",
+                "img": "https://your-image-url-here.com/saw.jpg"
+            },
+            {
+                "wordEN": "Drill",
+                "wordRU": "Дрель",
+                "description": "Инструмент для создания отверстий в материалах.",
+                "img": "https://your-image-url-here.com/drill.jpg"
             }
         ]
     },
     {
-        "name": "Инструменты",
+        "name": "Россия",
         "wordsAll": 123,
         "wordsLearned": 23,
-        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
-        "id": 2,
+        "description": "Набор слов, отражающих культурное и географическое разнообразие России.",
+        "id": 7,
         "cards": [
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Russia",
+                "wordRU": "Россия",
+                "description": "Крупнейшая страна в мире с богатым культурным и историческим наследием.",
+                "img": "https://your-image-url-here.com/russia.jpg"
             },
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Moscow",
+                "wordRU": "Москва",
+                "description": "Столица России, политический, экономический и культурный центр страны.",
+                "img": "https://your-image-url-here.com/moscow.jpg"
             },
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Siberia",
+                "wordRU": "Сибирь",
+                "description": "Обширный регион в России, известный своими холодными зимами и удивительной природой.",
+                "img": "https://your-image-url-here.com/siberia.jpg"
+            },
+            {
+                "wordEN": "Saint Petersburg",
+                "wordRU": "Санкт-Петербург",
+                "description": "Город на северо-западе России, известный своей архитектурой и культурными событиями.",
+                "img": "https://your-image-url-here.com/saint_petersburg.jpg"
+            },
+            {
+                "wordEN": "Vodka",
+                "wordRU": "Водка",
+                "description": "Традиционный российский алкогольный напиток.",
+                "img": "https://klike.net/uploads/posts/2022-08/1661953827_j-62.jpg"
             }
         ]
     },
     {
-        "name": "Инструменты",
+        "name": "Город",
         "wordsAll": 123,
         "wordsLearned": 23,
-        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
-        "id": 3,
+        "description": "Набор слов, отражающих разнообразие и красоту городской жизни и ее элементов.",
+        "id": 6,
         "cards": [
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "City",
+                "wordRU": "Город",
+                "description": "Большое населенное место с развитой инфраструктурой и множеством зданий.",
+                "img": "https://urbanphenomena.net/wp-content/uploads/2016/02/city.jpg"
             },
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Building",
+                "wordRU": "Здание",
+                "description": "Структура с стенами и крышей, предназначенная для проживания, работы, хранения или других целей.",
+                "img": "https://www.irishtimes.com/polopoly_fs/1.3969578.1564424506!/image/image.jpg"
             },
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
-            }
-        ]
-    },
-    {
-        "name": "Инструменты",
-        "wordsAll": 123,
-        "wordsLearned": 23,
-        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
-        "id": 4,
-        "cards": [
-            {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Skyscraper",
+                "wordRU": "Небоскреб",
+                "description": "Очень высокое здание, как правило, имеющее множество этажей.",
+                "img": "https://media-cdn.tripadvisor.com/media/photo-s/1a/3a/95/1d/caption.jpg"
             },
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Park",
+                "wordRU": "Парк",
+                "description": "Общественная зеленая зона с деревьями, лужайками и, возможно, игровыми и спортивными площадками.",
+                "img": "https://www.cityofmadison.com/sites/default/files/city-of-madison/parks/images/burrows1.jpg"
             },
             {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
-            }
-        ]
-    },
-    {
-        "name": "Инструменты",
-        "wordsAll": 123,
-        "wordsLearned": 23,
-        "description": "Набор слов, представляющих разнообразие и красоту лесной природы и ее обитателей.",
-        "id": 5,
-        "cards": [
-            {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
-            },
-            {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
-            },
-            {
-                "wordEN": "fox",
-                "wordRU": "Лиса",
-                "description": "То же, что лисица.",
-                "img": "https://klike.net/uploads/posts/2022-09/1662886703_g-5.jpg"
+                "wordEN": "Traffic",
+                "wordRU": "Движение",
+                "description": "Движение транспортных средств и пешеходов по дорогам и улицам города.",
+                "img": "https://www.overdrive.in/wp-content/uploads/2019/03/traffic-jam-1280x720.jpg"
             }
         ]
     }

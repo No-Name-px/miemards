@@ -4,12 +4,13 @@ import Header from '../../components/Header';
 import Page from '../../components/Page';
 import MockedDecks from '../../mocks/decks.json';
 import Card from '../../components/Card';
-import TextTitle from '../../components/TextTitle/TextTitle';
+import TextTitle from '../../components/TextTitle';
 import { Deck } from '../../types/decks';
 import styles from './DecksPage.module.css';
 import ProgressCounter from '../../components/ProgressCounter';
 import IconAccent from '../../components/IconAccent';
 import Play from '../../assets/icons/media-play.svg?react';
+import { NavLink } from 'react-router-dom';
 
 export default function Decks() {
     const [decks, setDecks] = useState<Deck[]>(MockedDecks);
@@ -20,23 +21,32 @@ export default function Decks() {
                     <Header>Все колоды</Header>
                     <div className={styles.decks}>
                         {decks.map((deck) => (
-                            <Card key={deck.id} className={styles.deckCard}>
-                                <div className={styles.cardContent}>
-                                    <div className={styles.header}>
-                                        <TextTitle>{deck.name}</TextTitle>
-                                        <ProgressCounter
-                                            className={styles.progress}
-                                        >
-                                            {deck.wordsLearned}/{deck.wordsAll}
-                                        </ProgressCounter>
+                            <NavLink
+                                className={styles.cardLink}
+                                to={`${deck.id}`}
+                                key={deck.id}
+                            >
+                                <Card className={styles.deckCard}>
+                                    <div className={styles.cardContent}>
+                                        <div className={styles.header}>
+                                            <TextTitle>{deck.name}</TextTitle>
+                                            <ProgressCounter
+                                                className={styles.progress}
+                                            >
+                                                {deck.wordsLearned}/
+                                                {deck.wordsAll}
+                                            </ProgressCounter>
+                                        </div>
+                                        <p className={styles.description}>
+                                            {deck.description}
+                                        </p>
                                     </div>
-                                    <p>{deck.description}</p>
-                                </div>
-                                <IconAccent
-                                    className={styles.play}
-                                    icon={Play}
-                                ></IconAccent>
-                            </Card>
+                                    <IconAccent
+                                        className={styles.play}
+                                        icon={Play}
+                                    ></IconAccent>
+                                </Card>
+                            </NavLink>
                         ))}
                     </div>
                 </Page>

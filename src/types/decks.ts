@@ -1,8 +1,8 @@
 export interface Card {
-    wordEN: string;
+    wordEN: string | null;
     wordRU: string;
     description: string;
-    img: string;
+    img?: string | null;
 }
 
 export interface Deck {

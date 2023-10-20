@@ -14,6 +14,8 @@ import TextTitle from '../../components/TextTitle';
 import IconAccent from '../../components/IconAccent';
 import Edit from '../../assets/icons/edit-s.svg?react';
 import Delete from '../../assets/icons/trash-s.svg?react';
+import Image from '../../components/Image';
+import Button from '../../components/Button';
 
 export default function DeckPageEdit() {
     const { deckId } = useParams();
@@ -70,15 +72,16 @@ export default function DeckPageEdit() {
                                             {card.description}
                                         </TextSecondary>
                                         {card.img && (
-                                            <img
-                                                className={styles.image}
+                                            <Image
                                                 src={card.img}
                                                 alt="cardImg"
-                                            />
+                                            ></Image>
                                         )}
                                     </Card>
                                 </div>
                             ))}
+                            <Button>Сгенерировать рекомендации</Button>
+                            <Button type="accent">Сохранить</Button>
                         </div>
                     </Page>
                 </Container>

@@ -11,6 +11,7 @@ import { Card as TCard } from '../../types/decks';
 import MockedDecks from '../../mocks/decks.json';
 import { useState } from 'react';
 import Button from '../../components/Button';
+import Image from '../../components/Image';
 
 export default function CardPageEdit() {
     const { deckId, cardId } = useParams();
@@ -45,11 +46,10 @@ export default function CardPageEdit() {
                                         rows={3}
                                     ></TextArea>
                                     {card.img ? (
-                                        <img
-                                            className={styles.image}
+                                        <Image
                                             src={card.img}
                                             alt="cardImg"
-                                        />
+                                        ></Image>
                                     ) : (
                                         <Button>Сгенерировать картинку</Button>
                                     )}

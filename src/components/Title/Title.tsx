@@ -2,7 +2,7 @@ import styles from './Title.module.css';
 import cn from 'classnames';
 
 interface Props {
-    className: string;
+    className?: string;
 }
 
 export default function Title(props: React.PropsWithChildren<Props>) {

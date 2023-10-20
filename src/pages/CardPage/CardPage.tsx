@@ -11,6 +11,7 @@ import { Card as TCard } from '../../types/decks';
 import styles from './CardPage.module.css';
 import Button from '../../components/Button';
 import TextSecondary from '../../components/TextSecondary';
+import Image from '../../components/Image';
 
 export default function CardPage() {
     const { deckId, cardId } = useParams();
@@ -41,11 +42,7 @@ export default function CardPage() {
                                     {card.description}
                                 </TextSecondary>
                                 {card.img && (
-                                    <img
-                                        className={styles.image}
-                                        src={card.img}
-                                        alt="cardImg"
-                                    />
+                                    <Image src={card.img} alt="cardImg"></Image>
                                 )}
                             </Card>
                             <Card>

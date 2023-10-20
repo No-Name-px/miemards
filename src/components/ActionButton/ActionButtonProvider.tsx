@@ -31,6 +31,7 @@ export default function ActionButtonProvider() {
                     </NavLink>
                 }
             />
+            <Route path="decks/create" element={<ActionButton invisible />} />
             <Route path="*" element={<ActionButton invisible />}></Route>
         </Routes>
     );

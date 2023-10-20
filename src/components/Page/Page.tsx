@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react';
 import styles from './Page.module.css';
 import cn from 'classnames';
 

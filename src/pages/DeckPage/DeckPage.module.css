@@ -9,12 +9,6 @@
     margin-top: var(--spacing-xxxs);
 }
 
-.image {
-    width: 100%;
-    border-radius: var(--radius-xs);
-    margin-top: var(--spacing-xxxs);
-}
-
 .getMore {
     margin-top: var(--spacing-m);
 }

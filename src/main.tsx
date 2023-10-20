@@ -26,6 +26,8 @@ import RegisterPage from './pages/RegisterPage/RegisterPage.tsx';
 import StatisticPage from './pages/StatisticPage/StatisticPage.tsx';
 import StatisticPageInner from './pages/StatisticPage/StatisticPageInner';
 import RatingPageInner from './pages/RatingPage/RatingPageInner/RatingPageInner.tsx';
+import PlayPage from './pages/PlayPage/PlayPage.tsx';
+import FinishPage from './pages/FinishPage/FinishPage.tsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -48,7 +50,11 @@ const router = createBrowserRouter(
                     path="decks/:deckId/cards/:cardId/edit"
                     element={<CardPageEdit />}
                 />
-                <Route path="decks/:deckId/play" element={<CardPageEdit />} />
+                <Route path="decks/:deckId/play" element={<PlayPage />} />
+                <Route
+                    path="decks/:deckId/play/finish"
+                    element={<FinishPage />}
+                />
                 <Route path="rating" element={<RatingPage />}>
                     <Route index element={<Navigate to="day"></Navigate>} />
                     <Route path="day" element={<RatingPageInner tab="day" />} />

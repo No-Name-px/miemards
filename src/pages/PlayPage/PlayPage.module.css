@@ -1,0 +1,52 @@
+.wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-s);
+}
+
+.resetContainer {
+    height: auto;
+}
+
+.headerContainer {
+    padding-bottom: 0;
+}
+
+.contentContainer {
+    padding-top: var(--spacing-m);
+    gap: var(--spacing-m);
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+    flex-grow: 1;
+}
+
+.description {
+    margin-top: var(--spacing-xxxs);
+}
+
+.img {
+    margin-top: var(--spacing-xs);
+}
+
+.background {
+    width: 100%;
+    flex-grow: 1;
+    background-size: auto 100%;
+    background-repeat: repeat-y;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-m);
+}

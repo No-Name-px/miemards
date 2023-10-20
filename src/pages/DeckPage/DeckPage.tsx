@@ -11,6 +11,7 @@ import TextTitle from '../../components/TextTitle';
 import TextPrimary from '../../components/TextPrimary/TextPrimary';
 import TextSecondary from '../../components/TextSecondary/TextSecondary';
 import Button from '../../components/Button';
+import Image from '../../components/Image';
 
 export default function DeckPage() {
     const { deckId } = useParams();
@@ -49,20 +50,16 @@ export default function DeckPage() {
                                                 {card.description}
                                             </TextSecondary>
                                             {card.img && (
-                                                <img
-                                                    className={styles.image}
+                                                <Image
                                                     src={card.img}
                                                     alt="cardImg"
-                                                />
+                                                ></Image>
                                             )}
                                         </Card>
                                     </NavLink>
                                 </div>
                             ))}
                         </div>
-                        <Button className={styles.getMore} type="accent">
-                            Сгенерировать рекомендации
-                        </Button>
                     </Page>
                 </Container>
             )}

@@ -5,10 +5,16 @@ import cn from 'classnames';
 interface Props {
     type?: keyof typeof ButtonTypeEnum;
     className?: string;
+    onClick?: () => void;
 }
 
 export default function Button(props: React.PropsWithChildren<Props>) {
-    const { children, type = ButtonTypeEnum.default, className } = props;
+    const {
+        children,
+        type = ButtonTypeEnum.default,
+        className,
+        onClick,
+    } = props;
     return (
         <>
             <button
@@ -16,6 +22,7 @@ export default function Button(props: React.PropsWithChildren<Props>) {
                     [styles.buttonDefault]: type === ButtonTypeEnum.default,
                     [styles.buttonAccent]: type === ButtonTypeEnum.accent,
                 })}
+                onClick={onClick}
             >
                 {children}
             </button>

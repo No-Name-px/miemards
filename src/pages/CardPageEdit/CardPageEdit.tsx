@@ -27,7 +27,7 @@ export default function CardPageEdit() {
             {!card ? (
                 <Navigate to="/error" replace={true} />
             ) : (
-                <Container>
+                <Container className={styles.container}>
                     <Page>
                         <Header hasBack>Редактирование карточки</Header>
                         <div className={styles.cardSides}>

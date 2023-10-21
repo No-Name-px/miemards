@@ -27,7 +27,7 @@ export default function CardPage() {
             {!card ? (
                 <Navigate to="/error" replace={true} />
             ) : (
-                <Container>
+                <Container className={styles.container}>
                     <Page>
                         <Header hasBack hasEdit>
                             Карточка

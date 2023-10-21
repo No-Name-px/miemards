@@ -22,6 +22,9 @@
     flex-direction: column;
     justify-content: center;
     gap: var(--spacing-xs);
+    max-width: 500px;
+    margin: 0 auto;
+    box-sizing: content-box;
 }
 
 .buttons {

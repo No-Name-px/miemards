@@ -6,6 +6,9 @@
     background-color: var(--background-color-secondary);
 
     border-radius: var(--radius-xxs);
+
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .link {

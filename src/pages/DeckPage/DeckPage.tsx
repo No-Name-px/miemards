@@ -30,12 +30,12 @@ export default function DeckPage() {
                         </Header>
                         <div className={styles.cards}>
                             {deck.cards.map((card, index) => (
-                                <div key={index}>
+                                <div key={index} className={styles.card}>
                                     <NavLink
                                         className={styles.cardLink}
                                         to={`cards/${index + 1}`}
                                     >
-                                        <Card>
+                                        <Card className={styles.card}>
                                             <TextTitle>
                                                 {card.wordEN
                                                     ? card.wordEN

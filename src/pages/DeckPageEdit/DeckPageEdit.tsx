@@ -37,51 +37,59 @@ export default function DeckPageEdit() {
                                 id="deckName"
                                 label="Название колоды"
                             ></Input>
-                            {deck.cards.map((card, index) => (
-                                <div key={index}>
-                                    <Card>
-                                        <div className={styles.cardHeader}>
-                                            <TextTitle>
-                                                {card.wordEN
-                                                    ? card.wordEN
-                                                    : '-'}
-                                            </TextTitle>
-                                            <div className={styles.cardButtons}>
-                                                <NavLink
-                                                    to={`/decks/${deckId}/cards/${
-                                                        index + 1
-                                                    }/edit`}
+                            <div className={styles.cardsContainer}>
+                                {deck.cards.map((card, index) => (
+                                    <div key={index} className={styles.card}>
+                                        <Card className={styles.card}>
+                                            <div className={styles.cardHeader}>
+                                                <TextTitle>
+                                                    {card.wordEN
+                                                        ? card.wordEN
+                                                        : '-'}
+                                                </TextTitle>
+                                                <div
+                                                    className={
+                                                        styles.cardButtons
+                                                    }
                                                 >
+                                                    <NavLink
+                                                        to={`/decks/${deckId}/cards/${
+                                                            index + 1
+                                                        }/edit`}
+                                                    >
+                                                        <IconAccent
+                                                            size="s"
+                                                            icon={Edit}
+                                                        ></IconAccent>
+                                                    </NavLink>
                                                     <IconAccent
                                                         size="s"
-                                                        icon={Edit}
+                                                        icon={Delete}
                                                     ></IconAccent>
-                                                </NavLink>
-                                                <IconAccent
-                                                    size="s"
-                                                    icon={Delete}
-                                                ></IconAccent>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <TextPrimary
-                                            className={styles.textPrimary}
-                                        >
-                                            {card.wordRU}
-                                        </TextPrimary>
-                                        <TextSecondary>
-                                            {card.description}
-                                        </TextSecondary>
-                                        {card.img && (
-                                            <Image
-                                                src={card.img}
-                                                alt="cardImg"
-                                            ></Image>
-                                        )}
-                                    </Card>
-                                </div>
-                            ))}
-                            <Button>Сгенерировать рекомендации</Button>
-                            <Button type="accent">Сохранить</Button>
+                                            <TextPrimary
+                                                className={styles.textPrimary}
+                                            >
+                                                {card.wordRU}
+                                            </TextPrimary>
+                                            <TextSecondary>
+                                                {card.description}
+                                            </TextSecondary>
+                                            {card.img && (
+                                                <Image
+                                                    src={card.img}
+                                                    alt="cardImg"
+                                                ></Image>
+                                            )}
+                                        </Card>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className={styles.buttonsContainer}>
+                                <Button>Сгенерировать рекомендации</Button>
+                                <Button type="accent">Сохранить</Button>
+                            </div>
                         </div>
                     </Page>
                 </Container>

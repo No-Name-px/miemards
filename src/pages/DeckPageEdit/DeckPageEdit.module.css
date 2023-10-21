@@ -8,6 +8,12 @@
     gap: var(--spacing-xxxs);
 }
 
+.cardsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-m);
+}
+
 .content {
     margin-top: var(--spacing-m);
     display: flex;
@@ -17,4 +23,26 @@
 
 .textPrimary {
     margin-top: var(--spacing-xxxs);
+}
+
+.card {
+    height: 100%;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+    .cardsContainer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .cardsContainer {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

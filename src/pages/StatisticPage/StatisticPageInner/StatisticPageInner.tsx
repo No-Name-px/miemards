@@ -9,6 +9,7 @@ import Check from '../../../assets/icons/check.svg?react';
 import Tools from '../../../assets/icons/pantone.svg?react';
 import Gamepad from '../../../assets/icons/gamepad.svg?react';
 import TextPrimary from '../../../components/TextPrimary';
+import styles from './StatisticPageInner.module.css';
 
 interface Props {
     tab: keyof PeriodsStatistic;
@@ -20,7 +21,7 @@ export default function StatisticPageInner(props: Props) {
     const currentStats = useMemo(() => stats[tab], [stats, tab]);
 
     return (
-        <>
+        <div className={styles.cardsContainer}>
             <CardIconed bgColor="var(--add-pallet-5)" icon={Education}>
                 <TextTitle>{currentStats.wordsAll}</TextTitle>
                 <TextPrimary>Слов изучено</TextPrimary>
@@ -41,6 +42,6 @@ export default function StatisticPageInner(props: Props) {
                 <TextTitle>{currentStats.games}</TextTitle>
                 <TextPrimary>Игры проведено</TextPrimary>
             </CardIconed>
-        </>
+        </div>
     );
 }

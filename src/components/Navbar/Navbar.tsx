@@ -15,44 +15,46 @@ interface Props {
 export default function Navbar(props: Props) {
     const { className } = props;
     return (
-        <div className={cs(styles.navbar, className)}>
-            <NavLink to="/decks" className={styles.navItem}>
-                {({ isActive }) => (
-                    <NavButton
-                        title="Колоды"
-                        icon={Decks}
-                        isActive={isActive}
-                    ></NavButton>
-                )}
-            </NavLink>
-            <NavLink to="/rating" className={styles.navItem}>
-                {({ isActive }) => (
-                    <NavButton
-                        title="Рейтинг"
-                        icon={Rating}
-                        isActive={isActive}
-                    ></NavButton>
-                )}
-            </NavLink>
-            <ActionButtonProvider></ActionButtonProvider>
-            <NavLink to="/statistic" className={styles.navItem}>
-                {({ isActive }) => (
-                    <NavButton
-                        title="Аналитика"
-                        icon={Analytic}
-                        isActive={isActive}
-                    ></NavButton>
-                )}
-            </NavLink>
-            <NavLink to="/profile" className={styles.navItem}>
-                {({ isActive }) => (
-                    <NavButton
-                        title="Профиль"
-                        icon={User}
-                        isActive={isActive}
-                    ></NavButton>
-                )}
-            </NavLink>
+        <div className="nav-bar">
+            <div className={cs(styles.navbar, className)}>
+                <NavLink to="/decks" className={styles.navItem}>
+                    {({ isActive }) => (
+                        <NavButton
+                            title="Колоды"
+                            icon={Decks}
+                            isActive={isActive}
+                        ></NavButton>
+                    )}
+                </NavLink>
+                <NavLink to="/rating" className={styles.navItem}>
+                    {({ isActive }) => (
+                        <NavButton
+                            title="Рейтинг"
+                            icon={Rating}
+                            isActive={isActive}
+                        ></NavButton>
+                    )}
+                </NavLink>
+                <ActionButtonProvider></ActionButtonProvider>
+                <NavLink to="/statistic" className={styles.navItem}>
+                    {({ isActive }) => (
+                        <NavButton
+                            title="Аналитика"
+                            icon={Analytic}
+                            isActive={isActive}
+                        ></NavButton>
+                    )}
+                </NavLink>
+                <NavLink to="/profile" className={styles.navItem}>
+                    {({ isActive }) => (
+                        <NavButton
+                            title="Профиль"
+                            icon={User}
+                            isActive={isActive}
+                        ></NavButton>
+                    )}
+                </NavLink>
+            </div>
         </div>
     );
 }

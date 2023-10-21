@@ -18,7 +18,7 @@ export default function RatingPageInner(props: Props) {
     const currentTop = useMemo(() => top[tab], [top, tab]);
 
     return (
-        <>
+        <div className={styles.cardsContainer}>
             {currentTop.map((user, index) => (
                 <CardIconed
                     bgColor={`var(--add-pallet-${(index % 5) + 1})`}
@@ -34,6 +34,6 @@ export default function RatingPageInner(props: Props) {
                     <TextPrimary>{user.country}</TextPrimary>
                 </CardIconed>
             ))}
-        </>
+        </div>
     );
 }

@@ -14,7 +14,7 @@ import { NavLink } from 'react-router-dom';
 export default function FinishPage() {
     return (
         <div>
-            <Container>
+            <Container className={styles.container}>
                 <Page>
                     <Header>Поздравляем! Вы молодец</Header>
                     <div className={styles.content}>

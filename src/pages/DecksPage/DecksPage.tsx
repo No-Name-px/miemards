@@ -41,10 +41,12 @@ export default function Decks() {
                                             {deck.description}
                                         </p>
                                     </div>
-                                    <IconAccent
-                                        className={styles.play}
-                                        icon={Play}
-                                    ></IconAccent>
+                                    <NavLink to={`${deck.id}/play`}>
+                                        <IconAccent
+                                            className={styles.play}
+                                            icon={Play}
+                                        ></IconAccent>
+                                    </NavLink>
                                 </Card>
                             </NavLink>
                         ))}

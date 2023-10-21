@@ -21,6 +21,8 @@
 .contentContainer {
     padding-top: var(--spacing-m);
     gap: var(--spacing-m);
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .cards {
@@ -42,7 +44,7 @@
     width: 100%;
     flex-grow: 1;
     background-size: auto 100%;
-    background-repeat: repeat-y;
+    background-repeat: repeat-x;
 }
 
 .buttons {

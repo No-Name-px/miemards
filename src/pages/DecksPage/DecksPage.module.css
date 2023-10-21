@@ -1,6 +1,6 @@
 .decks {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     margin-top: var(--spacing-s);
     gap: var(--spacing-m);
 }
@@ -30,8 +30,22 @@
 .deckCard {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .play {
     margin-left: var(--spacing-xs);
+}
+
+@media screen and (min-width: 600px) {
+    .decks {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .decks {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

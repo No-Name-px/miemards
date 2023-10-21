@@ -5,4 +5,5 @@
     height: 100%;
     padding-top: var(--spacing-xxl);
     padding-bottom: var(--spacing-l);
+    min-width: 300px;
 }

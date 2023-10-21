@@ -4,6 +4,7 @@
     cursor: pointer;
     padding: var(--spacing-s) 0;
     border-radius: var(--radius-xxs);
+    min-width: 300px;
 }
 
 .buttonDefault {

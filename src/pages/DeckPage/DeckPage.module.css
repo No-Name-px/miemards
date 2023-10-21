@@ -1,6 +1,6 @@
 .cards {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: var(--spacing-m);
     margin-top: var(--spacing-s);
 }
@@ -13,6 +13,22 @@
     margin-top: var(--spacing-m);
 }
 
+.card {
+    height: 100%;
+}
+
 .cardLink {
     text-decoration: none;
+}
+
+@media screen and (min-width: 600px) {
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

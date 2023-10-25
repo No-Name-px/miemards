@@ -31,13 +31,20 @@
 
 .buttonsContainer {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    gap: var(--spacing-m);
+    flex-direction: column;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
     .cardsContainer {
         grid-template-columns: 1fr 1fr;
+    }
+    .buttonsContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+        width: 100%;
     }
 }
 

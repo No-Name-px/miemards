@@ -4,7 +4,7 @@
     cursor: pointer;
     padding: var(--spacing-s) 0;
     border-radius: var(--radius-xxs);
-    min-width: 300px;
+    width: 100%;
 }
 
 .buttonDefault {
@@ -14,4 +14,22 @@
 
 .buttonAccent {
     background-color: var(--accent-1);
+}
+
+.buttonAccept {
+    background-color: var(--add-pallet-5);
+    color: var(--text-primary-on-dark);
+}
+
+.buttonCancel {
+    background-color: var(--add-pallet-2);
+    color: var(--text-primary-on-dark);
+}
+
+.sizeM {
+    min-width: 300px;
+}
+
+.sizeS {
+    min-width: 150px;
 }

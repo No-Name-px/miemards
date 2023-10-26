@@ -92,11 +92,16 @@ export default function PlayPage() {
                                 <>
                                     <Button
                                         onClick={handleRightAnswer}
-                                        type="accent"
+                                        type="accept"
+                                        size="s"
                                     >
                                         Я прав!
                                     </Button>
-                                    <Button onClick={handleWrongAnswer}>
+                                    <Button
+                                        onClick={handleWrongAnswer}
+                                        type="cancel"
+                                        size="s"
+                                    >
                                         Я не прав(
                                     </Button>
                                 </>

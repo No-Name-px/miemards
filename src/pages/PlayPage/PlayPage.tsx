@@ -15,7 +15,7 @@ import Button from '../../components/Button';
 
 export default function PlayPage() {
     const { deckId } = useParams();
-    const [deck, setDeck] = useState<Deck | undefined>(
+    const [deck] = useState<Deck | undefined>(
         MockedDecks.find((item) => item.id.toString() === deckId)
     );
     const [currentNumber, setCurrentNumber] = useState(0);

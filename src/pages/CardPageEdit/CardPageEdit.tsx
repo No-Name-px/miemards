@@ -15,7 +15,7 @@ import Image from '../../components/Image';
 
 export default function CardPageEdit() {
     const { deckId, cardId } = useParams();
-    const [card, setCard] = useState<TCard | undefined>(
+    const [card] = useState<TCard | undefined>(
         cardId
             ? MockedDecks.find((item) => item.id.toString() === deckId)?.cards[
                   +cardId - 1

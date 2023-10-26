@@ -19,7 +19,7 @@ import Button from '../../components/Button';
 
 export default function DeckPageEdit() {
     const { deckId } = useParams();
-    const [deck, setDeck] = useState<Deck | undefined>(
+    const [deck] = useState<Deck | undefined>(
         MockedDecks.find((item) => item.id.toString() === deckId)
     );
 

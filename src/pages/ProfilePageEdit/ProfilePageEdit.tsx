@@ -14,22 +14,30 @@ export default function ProfilePageEdit() {
                     <div className={styles.inputBlock}>
                         <Input
                             id={'name'}
-                            onChange={(value: string) => {}}
+                            onChange={(value: string) => {
+                                console.log(value);
+                            }}
                             label="Имя"
                         ></Input>
                         <Input
                             id={'number'}
-                            onChange={(value: string) => {}}
+                            onChange={(value: string) => {
+                                console.log(value);
+                            }}
                             label="Телефон"
                         ></Input>
                         <Input
                             id={'email'}
-                            onChange={(value: string) => {}}
+                            onChange={(value: string) => {
+                                console.log(value);
+                            }}
                             label="Почта"
                         ></Input>
                         <Input
                             id={'country'}
-                            onChange={(value: string) => {}}
+                            onChange={(value: string) => {
+                                console.log(value);
+                            }}
                             label="Страна"
                         ></Input>
                     </div>

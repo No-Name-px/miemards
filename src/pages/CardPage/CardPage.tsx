@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Navigate, useParams } from 'react-router-dom';
 import Container from '../../components/Container';
 import Page from '../../components/Page';
@@ -15,7 +16,7 @@ import Image from '../../components/Image';
 
 export default function CardPage() {
     const { deckId, cardId } = useParams();
-    const [card, setCard] = useState<TCard | undefined>(
+    const [card] = useState<TCard | undefined>(
         cardId
             ? MockedDecks.find((item) => item.id.toString() === deckId)?.cards[
                   +cardId - 1

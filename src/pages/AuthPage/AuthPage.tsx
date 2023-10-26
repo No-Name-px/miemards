@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom';
 import Logo from '../../assets/pics/logo.svg?react';
 import Button from '../../components/Button';
 import Container from '../../components/Container';
-import Page from '../../components/Page';
 import styles from './AuthPage.module.css';
 import bgPath from '../../assets/pics/main-bg.svg';
 

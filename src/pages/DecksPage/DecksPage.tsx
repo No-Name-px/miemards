@@ -13,7 +13,7 @@ import Play from '../../assets/icons/media-play.svg?react';
 import { NavLink } from 'react-router-dom';
 
 export default function Decks() {
-    const [decks, setDecks] = useState<Deck[]>(MockedDecks);
+    const [decks] = useState<Deck[]>(MockedDecks);
     return (
         <div>
             <Container>

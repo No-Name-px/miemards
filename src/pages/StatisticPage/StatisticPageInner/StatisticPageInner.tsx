@@ -17,7 +17,7 @@ interface Props {
 
 export default function StatisticPageInner(props: Props) {
     const { tab } = props;
-    const [stats, setStats] = useState<PeriodsStatistic>(Stats);
+    const [stats] = useState<PeriodsStatistic>(Stats);
     const currentStats = useMemo(() => stats[tab], [stats, tab]);
 
     return (

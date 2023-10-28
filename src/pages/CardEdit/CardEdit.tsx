@@ -1,17 +1,17 @@
 import { Navigate, useParams } from 'react-router-dom';
-import Card from '../../components/Card';
-import Container from '../../components/Container';
-import Header from '../../components/Header';
-import Input from '../../components/Input';
-import Page from '../../components/Page';
-import TextArea from '../../components/TextArea';
-import TextTitle from '../../components/TextTitle';
+import Card from 'components/Card';
+import Container from 'components/Container';
+import Header from 'components/Header';
+import Input from 'components/Input';
+import Page from 'components/Page';
+import TextArea from 'components/TextArea';
+import TextTitle from 'components/TextTitle';
 import styles from './CardEdit.module.css';
-import { Card as TCard } from '../../types/decks';
-import MockedDecks from '../../mocks/decks.json';
+import { Card as TCard } from 'types/decks';
+import MockedDecks from 'mocks/decks.json';
 import { useState } from 'react';
-import Button from '../../components/Button';
-import Image from '../../components/Image';
+import Button from 'components/Button';
+import Image from 'components/Image';
 
 export default function CardPageEdit() {
     const { deckId, cardId } = useParams();

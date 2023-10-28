@@ -1,17 +1,17 @@
-import Card from '../../components/Card';
-import Container from '../../components/Container';
-import Header from '../../components/Header';
-import Page from '../../components/Page';
-import TextSecondary from '../../components/TextSecondary';
-import Title from '../../components/Title';
+import Card from 'components/Card';
+import Container from 'components/Container';
+import Header from 'components/Header';
+import Page from 'components/Page';
+import TextSecondary from 'components/TextSecondary';
+import Title from 'components/Title';
 import styles from './Game.module.css';
-import { Deck } from '../../types/decks';
-import MockedDecks from '../../mocks/decks.json';
+import { Deck } from 'types/decks';
+import MockedDecks from 'mocks/decks.json';
 import { Navigate, useParams } from 'react-router-dom';
 import { useCallback, useMemo, useState } from 'react';
-import Image from '../../components/Image';
-import bgPath from '../../assets/pics/main-bg.svg';
-import Button from '../../components/Button';
+import Image from 'components/Image';
+import bgPath from 'assets/pics/main-bg.svg';
+import Button from 'components/Button';
 
 export default function PlayPage() {
     const { deckId } = useParams();

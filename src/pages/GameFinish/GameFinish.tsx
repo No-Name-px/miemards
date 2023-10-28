@@ -1,14 +1,14 @@
-import Container from '../../components/Container';
-import Header from '../../components/Header';
-import Page from '../../components/Page';
+import Container from 'components/Container';
+import Header from 'components/Header';
+import Page from 'components/Page';
 import styles from './GameFinish.module.css';
-import FinishCat from '../../assets/pics/finishCat.svg?react';
-import Education from '../../assets/icons/cap-academic.svg?react';
-import Done from '../../assets/icons/check.svg?react';
-import TextPrimary from '../../components/TextPrimary';
-import CardIconed from '../../components/CardIconed';
-import TextTitle from '../../components/TextTitle';
-import Button from '../../components/Button';
+import FinishCat from 'assets/pics/finishCat.svg?react';
+import Education from 'assets/icons/cap-academic.svg?react';
+import Done from 'assets/icons/check.svg?react';
+import TextPrimary from 'components/TextPrimary';
+import CardIconed from 'components/CardIconed';
+import TextTitle from 'components/TextTitle';
+import Button from 'components/Button';
 import { NavLink } from 'react-router-dom';
 
 export default function FinishPage() {

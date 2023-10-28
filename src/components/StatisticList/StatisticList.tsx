@@ -15,7 +15,7 @@ interface Props {
     tab: keyof PeriodsStatistic;
 }
 
-export default function StatisticPageInner(props: Props) {
+export default function StatisticList(props: Props) {
     const { tab } = props;
     const [stats] = useState<PeriodsStatistic>(Stats);
     const currentStats = useMemo(() => stats[tab], [stats, tab]);

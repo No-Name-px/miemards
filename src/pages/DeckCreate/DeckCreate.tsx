@@ -1,9 +1,9 @@
-import Container from '../../components/Container';
-import Page from '../../components/Page';
-import Header from '../../components/Header';
+import Container from 'components/Container';
+import Page from 'components/Page';
+import Header from 'components/Header';
 import styles from './DeckCreate.module.css';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import Input from 'components/Input';
+import Button from 'components/Button';
 
 export default function DeckPageCreate() {
     return (

@@ -1,16 +1,16 @@
 import { NavLink, Navigate, useParams } from 'react-router-dom';
-import Container from '../../components/Container/Container';
-import Page from '../../components/Page/Page';
-import Header from '../../components/Header';
-import { Deck } from '../../types/decks';
-import MockedDecks from '../../mocks/decks.json';
+import Container from 'components/Container/Container';
+import Page from 'components/Page/Page';
+import Header from 'components/Header';
+import { Deck } from 'types/decks';
+import MockedDecks from 'mocks/decks.json';
 import { useState } from 'react';
 import styles from './DeckInfo.module.css';
-import Card from '../../components/Card';
-import TextTitle from '../../components/TextTitle';
-import TextPrimary from '../../components/TextPrimary/TextPrimary';
-import TextSecondary from '../../components/TextSecondary/TextSecondary';
-import Image from '../../components/Image';
+import Card from 'components/Card';
+import TextTitle from 'components/TextTitle';
+import TextPrimary from 'components/TextPrimary/TextPrimary';
+import TextSecondary from 'components/TextSecondary/TextSecondary';
+import Image from 'components/Image';
 
 export default function DeckPage() {
     const { deckId } = useParams();

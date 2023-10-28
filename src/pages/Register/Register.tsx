@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import Button from '../../components/Button';
-import Container from '../../components/Container';
-import Header from '../../components/Header';
-import Input from '../../components/Input';
-import Page from '../../components/Page';
+import Button from 'components/Button';
+import Container from 'components/Container';
+import Header from 'components/Header';
+import Input from 'components/Input';
+import Page from 'components/Page';
 import styles from './Register.module.css';
 
 export default function RegisterPage() {

@@ -1,21 +1,21 @@
 import { NavLink, Navigate, useParams } from 'react-router-dom';
-import Container from '../../components/Container';
-import Page from '../../components/Page';
-import Header from '../../components/Header';
+import Container from 'components/Container';
+import Page from 'components/Page';
+import Header from 'components/Header';
 import styles from './DeckEdit.module.css';
-import Input from '../../components/Input';
-import MockedDecks from '../../mocks/decks.json';
-import { Deck } from '../../types/decks';
+import Input from 'components/Input';
+import MockedDecks from 'mocks/decks.json';
+import { Deck } from 'types/decks';
 import { useState } from 'react';
-import Card from '../../components/Card';
-import TextPrimary from '../../components/TextPrimary';
-import TextSecondary from '../../components/TextSecondary';
-import TextTitle from '../../components/TextTitle';
-import IconAccent from '../../components/IconAccent';
-import Edit from '../../assets/icons/edit-s.svg?react';
-import Delete from '../../assets/icons/trash-s.svg?react';
-import Image from '../../components/Image';
-import Button from '../../components/Button';
+import Card from 'components/Card';
+import TextPrimary from 'components/TextPrimary';
+import TextSecondary from 'components/TextSecondary';
+import TextTitle from 'components/TextTitle';
+import IconAccent from 'components/IconAccent';
+import Edit from 'assets/icons/edit-s.svg?react';
+import Delete from 'assets/icons/trash-s.svg?react';
+import Image from 'components/Image';
+import Button from 'components/Button';
 
 export default function DeckPageEdit() {
     const { deckId } = useParams();

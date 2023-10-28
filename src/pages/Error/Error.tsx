@@ -1,8 +1,8 @@
-import Container from '../../components/Container';
-import Page from '../../components/Page';
-import Cat from '../../assets/pics/404.svg?react';
+import Container from 'components/Container';
+import Page from 'components/Page';
+import Cat from 'assets/pics/404.svg?react';
 import styles from './Error.module.css';
-import Button from '../../components/Button';
+import Button from 'components/Button';
 import { NavLink } from 'react-router-dom';
 
 export default function ErrorPage() {

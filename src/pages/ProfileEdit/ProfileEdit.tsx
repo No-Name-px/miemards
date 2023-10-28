@@ -1,8 +1,8 @@
-import Button from '../../components/Button';
-import Container from '../../components/Container';
-import Header from '../../components/Header';
-import Input from '../../components/Input';
-import Page from '../../components/Page';
+import Button from 'components/Button';
+import Container from 'components/Container';
+import Header from 'components/Header';
+import Input from 'components/Input';
+import Page from 'components/Page';
 import styles from './ProfileEdit.module.css';
 
 export default function ProfilePageEdit() {

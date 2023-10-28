@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
+import App from 'components/App';
 import './index.css';
 import {
     Navigate,
@@ -9,25 +9,25 @@ import {
     createBrowserRouter,
     createRoutesFromElements,
 } from 'react-router-dom';
-import Auth from './pages/Auth/Auth.tsx';
-import CardInfo from './pages/CardInfo/CardInfo.tsx';
-import CardPageEdit from './pages/CardEdit/CardEdit.tsx';
-import DeckInfo from './pages/DeckInfo/DeckInfo.tsx';
-import DeckCreate from './pages/DeckCreate/DeckCreate.tsx';
-import DeckEdit from './pages/DeckEdit/DeckEdit.tsx';
-import DecksInfo from './pages/DecksInfo/DecksInfo.tsx';
-import Error from './pages/Error/Error.tsx';
-import Home from './pages/Home/Home.tsx';
-import Login from './pages/Login/Login.tsx';
-import Profile from './pages/Profile/Profile.tsx';
-import ProfileEdit from './pages/ProfileEdit/ProfileEdit.tsx';
-import Rating from './pages/Rating/Rating.tsx';
-import Register from './pages/Register/Register.tsx';
-import Statistic from './pages/Statistic/Statistic.tsx';
-import StatisticList from './components/StatisticList/index.ts';
-import RatingList from './components/RatingList/RatingList.tsx';
-import Game from './pages/Game/Game.tsx';
-import GameFinish from './pages/GameFinish/GameFinish.tsx';
+import Auth from 'pages/Auth';
+import CardInfo from 'pages/CardInfo';
+import CardPageEdit from 'pages/CardEdit';
+import DeckInfo from 'pages/DeckInfo';
+import DeckCreate from 'pages/DeckCreate';
+import DeckEdit from 'pages/DeckEdit';
+import DecksInfo from 'pages/DecksInfo';
+import Error from 'pages/Error';
+import Home from 'pages/Home';
+import Login from 'pages/Login';
+import Profile from 'pages/Profile';
+import ProfileEdit from 'pages/ProfileEdit';
+import Rating from 'pages/Rating';
+import Register from 'pages/Register';
+import Statistic from 'pages/Statistic';
+import StatisticList from 'components/StatisticList';
+import RatingList from 'components/RatingList';
+import Game from 'pages/Game';
+import GameFinish from 'pages/GameFinish';
 
 const router = createBrowserRouter(
     createRoutesFromElements(

@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import Container from '../../components/Container';
-import Header from '../../components/Header';
-import Page from '../../components/Page';
-import MockedDecks from '../../mocks/decks.json';
-import Card from '../../components/Card';
-import TextTitle from '../../components/TextTitle';
-import { Deck } from '../../types/decks';
+import Container from 'components/Container';
+import Header from 'components/Header';
+import Page from 'components/Page';
+import MockedDecks from 'mocks/decks.json';
+import Card from 'components/Card';
+import TextTitle from 'components/TextTitle';
+import { Deck } from 'types/decks';
 import styles from './DecksInfo.module.css';
-import ProgressCounter from '../../components/ProgressCounter';
-import IconAccent from '../../components/IconAccent';
-import Play from '../../assets/icons/media-play.svg?react';
+import ProgressCounter from 'components/ProgressCounter';
+import IconAccent from 'components/IconAccent';
+import Play from 'assets/icons/media-play.svg?react';
 import { NavLink } from 'react-router-dom';
 
 export default function Decks() {

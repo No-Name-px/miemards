@@ -9,92 +9,77 @@ import {
     createBrowserRouter,
     createRoutesFromElements,
 } from 'react-router-dom';
-import AuthPage from './pages/AuthPage/AuthPage.tsx';
-import CardPage from './pages/CardPage/CardPage.tsx';
-import CardPageEdit from './pages/CardPageEdit/CardPageEdit.tsx';
-import DeckPage from './pages/DeckPage/DeckPage.tsx';
-import DeckPageCreate from './pages/DeckPageCreate/DeckPageCreate.tsx';
-import DeckPageEdit from './pages/DeckPageEdit/DeckPageEdit.tsx';
-import DecksPage from './pages/DecksPage/DecksPage.tsx';
-import ErrorPage from './pages/ErrorPage/ErrorPage.tsx';
-import Layout from './pages/Layout/Layout.tsx';
-import LoginPage from './pages/LoginPage/LoginPage.tsx';
-import ProfilePage from './pages/ProfilePage/ProfilePage.tsx';
-import ProfilePageEdit from './pages/ProfilePageEdit/ProfilePageEdit.tsx';
-import RatingPage from './pages/RatingPage/RatingPage.tsx';
-import RegisterPage from './pages/RegisterPage/RegisterPage.tsx';
-import StatisticPage from './pages/StatisticPage/StatisticPage.tsx';
-import StatisticPageInner from './pages/StatisticPage/StatisticPageInner';
-import RatingPageInner from './pages/RatingPage/RatingPageInner/RatingPageInner.tsx';
-import PlayPage from './pages/PlayPage/PlayPage.tsx';
-import FinishPage from './pages/FinishPage/FinishPage.tsx';
+import Auth from './pages/Auth/Auth.tsx';
+import CardInfo from './pages/CardInfo/CardInfo.tsx';
+import CardPageEdit from './pages/CardEdit/CardEdit.tsx';
+import DeckInfo from './pages/DeckInfo/DeckInfo.tsx';
+import DeckCreate from './pages/DeckCreate/DeckCreate.tsx';
+import DeckEdit from './pages/DeckEdit/DeckEdit.tsx';
+import DecksInfo from './pages/DecksInfo/DecksInfo.tsx';
+import Error from './pages/Error/Error.tsx';
+import Home from './pages/Home/Home.tsx';
+import Login from './pages/Login/Login.tsx';
+import Profile from './pages/Profile/Profile.tsx';
+import ProfileEdit from './pages/ProfileEdit/ProfileEdit.tsx';
+import Rating from './pages/Rating/Rating.tsx';
+import Register from './pages/Register/Register.tsx';
+import Statistic from './pages/Statistic/Statistic.tsx';
+import StatisticList from './components/StatisticList/index.ts';
+import RatingList from './components/RatingList/RatingList.tsx';
+import Game from './pages/Game/Game.tsx';
+import GameFinish from './pages/GameFinish/GameFinish.tsx';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="/" element={<App></App>}>
-            <Route path="/" element={<Layout></Layout>}>
+        <Route path="/" element={<App />}>
+            <Route path="/" element={<Home />}>
                 <Route index element={<Navigate to="/decks" />} />
-                <Route path="decks" element={<DecksPage />} />
-                <Route path="decks/:deckId" element={<DeckPage />} />
-                <Route path="decks/create" element={<DeckPageCreate />} />
-                <Route path="decks/:deckId/edit" element={<DeckPageEdit />} />
+                <Route path="decks" element={<DecksInfo />} />
+                <Route path="decks/:deckId" element={<DeckInfo />} />
+                <Route path="decks/create" element={<DeckCreate />} />
+                <Route path="decks/:deckId/edit" element={<DeckEdit />} />
                 <Route
                     path="decks/:deckId/cards"
                     element={<Navigate to=".." relative="path" />}
                 />
                 <Route
                     path="decks/:deckId/cards/:cardId"
-                    element={<CardPage />}
+                    element={<CardInfo />}
                 />
                 <Route
                     path="decks/:deckId/cards/:cardId/edit"
                     element={<CardPageEdit />}
                 />
-                <Route path="decks/:deckId/play" element={<PlayPage />} />
+                <Route path="decks/:deckId/play" element={<Game />} />
                 <Route
                     path="decks/:deckId/play/finish"
-                    element={<FinishPage />}
+                    element={<GameFinish />}
                 />
-                <Route path="rating" element={<RatingPage />}>
-                    <Route index element={<Navigate to="day"></Navigate>} />
-                    <Route path="day" element={<RatingPageInner tab="day" />} />
-                    <Route
-                        path="week"
-                        element={<RatingPageInner tab="week" />}
-                    />
+                <Route path="rating" element={<Rating />}>
+                    <Route index element={<Navigate to="day" />} />
+                    <Route path="day" element={<RatingList tab="day" />} />
+                    <Route path="week" element={<RatingList tab="week" />} />
                     <Route
                         path="all-time"
-                        element={<RatingPageInner tab="allTime" />}
+                        element={<RatingList tab="allTime" />}
                     />
                 </Route>
-                <Route path="statistic" element={<StatisticPage />}>
-                    <Route index element={<Navigate to="day"></Navigate>} />
-                    <Route
-                        path="day"
-                        element={<StatisticPageInner tab="day" />}
-                    />
-                    <Route
-                        path="week"
-                        element={<StatisticPageInner tab="week" />}
-                    />
+                <Route path="statistic" element={<Statistic />}>
+                    <Route index element={<Navigate to="day" />} />
+                    <Route path="day" element={<StatisticList tab="day" />} />
+                    <Route path="week" element={<StatisticList tab="week" />} />
                     <Route
                         path="all-time"
-                        element={<StatisticPageInner tab="allTime" />}
+                        element={<StatisticList tab="allTime" />}
                     />
                 </Route>
-                <Route path="profile" element={<ProfilePage />}></Route>
-                <Route
-                    path="profile/edit"
-                    element={<ProfilePageEdit />}
-                ></Route>
+                <Route path="profile" element={<Profile />}></Route>
+                <Route path="profile/edit" element={<ProfileEdit />}></Route>
             </Route>
-            <Route path="/auth" element={<AuthPage></AuthPage>}></Route>
-            <Route path="/auth/login" element={<LoginPage></LoginPage>}></Route>
-            <Route
-                path="/auth/register"
-                element={<RegisterPage></RegisterPage>}
-            ></Route>
-            <Route path="/*" element={<ErrorPage></ErrorPage>}></Route>
+            <Route path="/auth" element={<Auth />}></Route>
+            <Route path="/auth/login" element={<Login />}></Route>
+            <Route path="/auth/register" element={<Register />}></Route>
+            <Route path="/*" element={<Error />}></Route>
         </Route>
     )
 );

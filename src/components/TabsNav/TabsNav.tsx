@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import styles from './TabsNav.module.css';
 import cn from 'classnames';
-import { Tab } from '../../types/ui';
+import { Tab } from './types';
 
 interface Props {
     className?: string;

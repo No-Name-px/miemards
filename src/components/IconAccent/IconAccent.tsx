@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { IconAccentSizeEnum, IconAccentTypeEnum } from '../../types/ui';
+import { IconAccentSizeEnum, IconAccentTypeEnum } from './types';
 import styles from './IconAccent.module.css';
 import cn from 'classnames';
 

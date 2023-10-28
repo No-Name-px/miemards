@@ -1,4 +1,4 @@
-import { ButtonTypeEnum, ButtonSizeEnum } from '../../types/ui';
+import { ButtonTypeEnum, ButtonSizeEnum } from './types';
 import styles from './Buttons.module.css';
 import cn from 'classnames';
 

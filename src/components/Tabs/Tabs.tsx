@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styles from './TabsNav.module.css';
+import styles from './Tabs.module.css';
 import cn from 'classnames';
 import { Tab } from './types';
 
@@ -8,7 +8,7 @@ interface Props {
     tabs: Tab[];
 }
 
-export default function TabsNav(props: Props) {
+export default function Tabs(props: Props) {
     const { className, tabs } = props;
     return (
         <nav className={cn(styles.nav, className)}>

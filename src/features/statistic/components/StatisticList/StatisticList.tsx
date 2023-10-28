@@ -1,14 +1,14 @@
 import { useMemo, useState } from 'react';
-import Stats from '../../mocks/statistic.json';
-import { PeriodsStatistic } from '../../types/statistic';
-import CardIconed from '../CardIconed';
-import TextTitle from '../TextTitle';
-import Education from '../../assets/icons/cap-academic.svg?react';
-import Trophy from '../../assets/icons/goblet.svg?react';
-import Check from '../../assets/icons/check.svg?react';
-import Tools from '../../assets/icons/pantone.svg?react';
-import Gamepad from '../../assets/icons/gamepad.svg?react';
-import TextPrimary from '../TextPrimary';
+import Stats from 'mocks/statistic.json';
+import { PeriodsStatistic } from 'types/statistic';
+import CardIconed from 'components/CardIconed';
+import TextTitle from 'components/TextTitle';
+import Education from 'assets/icons/cap-academic.svg?react';
+import Trophy from 'assets/icons/goblet.svg?react';
+import Check from 'assets/icons/check.svg?react';
+import Tools from 'assets/icons/pantone.svg?react';
+import Gamepad from 'assets/icons/gamepad.svg?react';
+import TextPrimary from 'components/TextPrimary';
 import styles from './StatisticList.module.css';
 
 interface Props {

@@ -24,8 +24,8 @@ import ProfileEdit from 'pages/ProfileEdit';
 import Rating from 'pages/Rating';
 import Register from 'pages/Register';
 import Statistic from 'pages/Statistic';
-import StatisticList from 'components/StatisticList';
-import RatingList from 'components/RatingList';
+import StatisticList from 'features/statistic/components/StatisticList';
+import RatingList from 'features/rating/components/RatingList';
 import Game from 'pages/Game';
 import GameFinish from 'pages/GameFinish';
 

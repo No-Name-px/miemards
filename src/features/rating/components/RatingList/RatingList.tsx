@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react';
-import MockedTop from '../../mocks/top.json';
-import CardIconed from '../CardIconed';
-import TextTitle from '../TextTitle';
-import TextPrimary from '../TextPrimary';
-import { PeriodTop } from '../../types/top';
+import MockedTop from 'mocks/top.json';
+import CardIconed from 'components/CardIconed';
+import TextTitle from 'components/TextTitle';
+import TextPrimary from 'components/TextPrimary';
+import { PeriodTop } from 'types/top';
 import styles from './RatingList.module.css';
-import ProgressCounter from '../ProgressCounter';
+import ProgressCounter from 'components/InfoAccent';
 
 interface Props {
     tab: keyof PeriodTop;

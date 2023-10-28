@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import IconAccent from '../IconAccent';
 import styles from './IconInfo.module.css';
-import { IconAccentSizeEnum, IconAccentTypeEnum } from '../../types/ui';
+import { IconAccentSizeEnum, IconAccentTypeEnum } from '../IconAccent/types';
 
 interface Props {
     icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;

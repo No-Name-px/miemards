@@ -21,6 +21,6 @@ module.exports = {
         'import/no-unresolved': 'off',
     },
     parserOptions: {
-        project: './tsconfig.json',
+        project: 'frontend/tsconfig.json',
     },
 };

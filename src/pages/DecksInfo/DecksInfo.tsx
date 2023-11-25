@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import Container from 'components/Container';
 import Header from 'components/Header';
 import Page from 'components/Page';
@@ -11,16 +11,29 @@ import ProgressCounter from 'components/InfoAccent';
 import IconAccent from 'components/IconAccent';
 import Play from 'assets/icons/media-play.svg?react';
 import { NavLink } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from 'redux-state';
+import { DecksActions } from 'redux-state/actions';
 
 export default function Decks() {
-    const [decks] = useState<Deck[]>(MockedDecks);
+    const dispatch = useAppDispatch();
+
+    const user = useAppSelector((state) => state.user);
+
+    useEffect(() => {
+        dispatch(DecksActions.getDecks(user?.id));
+    }, [user, dispatch]);
+
+    const decks = useAppSelector((state) => state.decks);
+
+    console.log(decks);
+
     return (
         <div>
             <Container>
                 <Page>
                     <Header>Все колоды</Header>
                     <div className={styles.decks}>
-                        {decks.map((deck) => (
+                        {/* {decks.map((deck) => (
                             <NavLink
                                 className={styles.cardLink}
                                 to={`${deck.id}`}
@@ -49,7 +62,7 @@ export default function Decks() {
                                     </NavLink>
                                 </Card>
                             </NavLink>
-                        ))}
+                        ))} */}
                     </div>
                 </Page>
             </Container>

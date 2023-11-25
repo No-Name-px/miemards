@@ -35,6 +35,7 @@ import {
     profilePathEdit,
     registerPath,
 } from './constants';
+// import { history } from 'redux';
 
 const router = createBrowserRouter(
     createRoutesFromElements(

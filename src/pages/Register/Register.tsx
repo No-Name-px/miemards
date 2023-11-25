@@ -1,63 +1,37 @@
-import { NavLink } from 'react-router-dom';
 import Button from 'components/Button';
 import Container from 'components/Container';
 import Header from 'components/Header';
 import Input from 'components/Input';
 import Page from 'components/Page';
 import styles from './Register.module.css';
+import { useAppDispatch } from 'redux-state';
+import { useCallback, useState } from 'react';
+import { AuthActions } from 'redux-state/actions';
+import { Register } from 'types';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegisterPage() {
-    // const registerUser = async () => {
-    //     fetch('http://127.0.0.1:8000/register', {
-    //         method: 'POST', // POST, PUT, DELETE, etc.
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             country: 'Testland',
-    //             email: 'test@example.com',
-    //             password: 'testpassword',
-    //             phone: '1234567890',
-    //             username: 'testuser',
-    //         }),
-    //         mode: 'no-cors',
-    //         referrerPolicy: 'unsafe-url',
-    //     });
-    // };
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
 
-    // const url = 'http://127.0.0.1:8000/register';
-    // const data = {
-    //     country: 'Testland',
-    //     email: 'test@example.com',
-    //     password: 'testpassword',
-    //     phone: '1234567890',
-    //     username: 'testuser',
-    // };
+    const [formValues, setFormValues] = useState<Register>({
+        username: '',
+        password: '',
+        country: '',
+        email: '',
+        phone: '',
+    });
 
-    // fetch(url, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(data),
-    // })
-    //     .then((response) => response.json())
-    //     .then((result) => console.log(result))
-    //     .catch((error) => console.error('Error:', error));
+    const onSubmit = useCallback(() => {
+        dispatch(AuthActions.register({ data: formValues, navigate }));
+    }, [dispatch, formValues]);
 
-    // const url = 'http://127.0.0.1:8000/decks/show_users_decks';
-
-    // fetch(url, {
-    //     method: 'GET',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         Authorization:
-    //             'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZXhwIjoxNzAwNzY0MjE5fQ.3IgVVYxlsCZbMV74C7LyBTQoySy4Kd9tgdo_OKGpuAk',
-    //     },
-    // })
-    //     .then((response) => response.json())
-    //     .then((result) => console.log(result))
-    //     .catch((error) => console.error('Error:', error));
+    const valueChange = useCallback((key: keyof Register, value: string) => {
+        setFormValues((oldValues) => ({
+            ...oldValues,
+            [key]: value,
+        }));
+    }, []);
 
     return (
         <>
@@ -66,38 +40,38 @@ export default function RegisterPage() {
                     <Header hasBack>Регистрация</Header>
                     <div className={styles.content}>
                         <Input
-                            onChange={() => {}}
-                            id="name"
+                            onChange={(v) => valueChange('username', v)}
+                            id="username"
                             label="Имя"
                             type="text"
                         ></Input>
                         <Input
-                            onChange={() => {}}
+                            onChange={(v) => valueChange('email', v)}
                             id="email"
                             label="Почта"
                             type="text"
                         ></Input>
                         <Input
-                            onChange={() => {}}
+                            onChange={(v) => valueChange('password', v)}
                             id="password"
                             label="Пароль"
                             type="password"
                         ></Input>
                         <Input
-                            onChange={() => {}}
-                            id="tel"
+                            onChange={(v) => valueChange('phone', v)}
+                            id="phone"
                             label="Телефон"
                             type="text"
                         ></Input>
                         <Input
-                            onChange={() => {}}
+                            onChange={(v) => valueChange('country', v)}
                             id="country"
                             label="Страна"
                             type="country"
                         ></Input>
-                        <NavLink className={styles.buttonLink} to="/">
-                            <Button type="accent">Создать аккаунт</Button>
-                        </NavLink>
+                        <Button type="accent" onClick={onSubmit}>
+                            Создать аккаунт
+                        </Button>
                     </div>
                 </Page>
             </Container>

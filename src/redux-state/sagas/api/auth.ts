@@ -4,8 +4,6 @@ import { ContentTypes } from '.';
 import { loginFetchURL, registerFetchURL } from '../../constants';
 
 export function loginRequest(data: Login) {
-    console.log(data);
-    console.log(loginFetchURL);
     return axios({
         url: loginFetchURL,
         method: 'POST',

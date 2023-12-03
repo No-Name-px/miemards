@@ -25,8 +25,6 @@ export default function Decks() {
 
     const decks = useAppSelector((state) => state.decks);
 
-    console.log(decks);
-
     return (
         <div>
             <Container>

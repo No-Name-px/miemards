@@ -5,7 +5,7 @@ enum Type {
     SET_USER = 'SET_USER',
 }
 
-const setUser = createAction<User>(Type.SET_USER);
+const setUser = createAction<User | null>(Type.SET_USER);
 
 export const UserActions = {
     Type,

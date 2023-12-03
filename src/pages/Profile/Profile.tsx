@@ -7,11 +7,19 @@ import Phone from 'assets/icons/phone.svg?react';
 import Mail from 'assets/icons/letter.svg?react';
 import Home from 'assets/icons/home.svg?react';
 import Header from 'components/Header';
-import { NavLink } from 'react-router-dom';
-import { useAppSelector } from 'redux-state';
+import { useAppDispatch, useAppSelector } from 'redux-state';
+import { useCallback } from 'react';
+import { AuthActions } from 'redux-state/actions';
+import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
     const user = useAppSelector((state) => state.user);
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+    const onLogout = useCallback(() => {
+        dispatch(AuthActions.logout({ navigate }));
+    }, [dispatch, navigate]);
     return (
         <>
             <Container>
@@ -28,9 +36,7 @@ export default function Profile() {
                             <p>{user?.country}</p>
                         </IconInfo>
                     </div>
-                    <NavLink to="/auth" className={styles.buttonContainer}>
-                        <Button>Выйти из аккаунта</Button>
-                    </NavLink>
+                    <Button onClick={onLogout}>Выйти из аккаунта</Button>
                 </Page>
             </Container>
         </>

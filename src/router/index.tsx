@@ -35,6 +35,7 @@ import {
     profilePathEdit,
     registerPath,
 } from './constants';
+import { ProtectedRoute } from './components/ProtectedRoute';
 // import { history } from 'redux';
 
 const router = createBrowserRouter(
@@ -42,47 +43,158 @@ const router = createBrowserRouter(
         <Route path="/" element={<App />}>
             <Route path="/" element={<Home />}>
                 <Route index element={<Navigate to="/decks" />} />
-                <Route path={allDecksPath} element={<DecksInfo />} />
-                <Route path={deckPath(':id')} element={<DeckInfo />} />
-                <Route path={deckCreatePath} element={<DeckCreate />} />
-                <Route path={deckEditPath(':id')} element={<DeckEdit />} />
+                <Route
+                    path={allDecksPath}
+                    element={
+                        <ProtectedRoute>
+                            <DecksInfo />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={deckPath(':id')}
+                    element={
+                        <ProtectedRoute>
+                            <DeckInfo />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={deckCreatePath}
+                    element={
+                        <ProtectedRoute>
+                            <DeckCreate />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={deckEditPath(':id')}
+                    element={
+                        <ProtectedRoute>
+                            <DeckEdit />
+                        </ProtectedRoute>
+                    }
+                />
                 <Route
                     path="decks/:deckId/cards"
                     element={<Navigate to=".." relative="path" />}
                 />
                 <Route
                     path="decks/:deckId/cards/:cardId"
-                    element={<CardInfo />}
+                    element={
+                        <ProtectedRoute>
+                            <CardInfo />
+                        </ProtectedRoute>
+                    }
                 />
                 <Route
                     path="decks/:deckId/cards/:cardId/edit"
-                    element={<CardPageEdit />}
+                    element={
+                        <ProtectedRoute>
+                            <CardPageEdit />
+                        </ProtectedRoute>
+                    }
                 />
-                <Route path="decks/:deckId/play" element={<Game />} />
+                <Route
+                    path="decks/:deckId/play"
+                    element={
+                        <ProtectedRoute>
+                            <Game />
+                        </ProtectedRoute>
+                    }
+                />
                 <Route
                     path="decks/:deckId/play/finish"
-                    element={<GameFinish />}
+                    element={
+                        <ProtectedRoute>
+                            <GameFinish />
+                        </ProtectedRoute>
+                    }
                 />
-                <Route path="rating" element={<Rating />}>
+                <Route
+                    path="rating"
+                    element={
+                        <ProtectedRoute>
+                            <Rating />
+                        </ProtectedRoute>
+                    }
+                >
                     <Route index element={<Navigate to="day" />} />
-                    <Route path="day" element={<RatingList tab="day" />} />
-                    <Route path="week" element={<RatingList tab="week" />} />
+                    <Route
+                        path="day"
+                        element={
+                            <ProtectedRoute>
+                                <RatingList tab="day" />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="week"
+                        element={
+                            <ProtectedRoute>
+                                <RatingList tab="week" />
+                            </ProtectedRoute>
+                        }
+                    />
                     <Route
                         path="all-time"
-                        element={<RatingList tab="allTime" />}
+                        element={
+                            <ProtectedRoute>
+                                <RatingList tab="allTime" />
+                            </ProtectedRoute>
+                        }
                     />
                 </Route>
-                <Route path="statistic" element={<Statistic />}>
+                <Route
+                    path="statistic"
+                    element={
+                        <ProtectedRoute>
+                            <Statistic />
+                        </ProtectedRoute>
+                    }
+                >
                     <Route index element={<Navigate to="day" />} />
-                    <Route path="day" element={<StatisticList tab="day" />} />
-                    <Route path="week" element={<StatisticList tab="week" />} />
+                    <Route
+                        path="day"
+                        element={
+                            <ProtectedRoute>
+                                <StatisticList tab="day" />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path="week"
+                        element={
+                            <ProtectedRoute>
+                                <StatisticList tab="week" />
+                            </ProtectedRoute>
+                        }
+                    />
                     <Route
                         path="all-time"
-                        element={<StatisticList tab="allTime" />}
+                        element={
+                            <ProtectedRoute>
+                                <StatisticList tab="allTime" />
+                            </ProtectedRoute>
+                        }
                     />
                 </Route>
-                <Route path={profilePath} element={<Profile />}></Route>
-                <Route path={profilePathEdit} element={<ProfileEdit />}></Route>
+                <Route
+                    path={profilePath}
+                    element={
+                        <ProtectedRoute>
+                            <Profile />
+                        </ProtectedRoute>
+                    }
+                ></Route>
+                <Route
+                    path={profilePathEdit}
+                    element={
+                        <ProtectedRoute>
+                            <ProfileEdit />
+                        </ProtectedRoute>
+                    }
+                ></Route>
             </Route>
             <Route path={authPath} element={<Auth />}></Route>
             <Route path={loginPath} element={<Login />}></Route>

@@ -40,31 +40,41 @@ export default function RegisterPage() {
                     <Header hasBack>Регистрация</Header>
                     <div className={styles.content}>
                         <Input
-                            onChange={(v) => valueChange('username', v)}
-                            id="username"
+                            onChange={(e) =>
+                                valueChange('username', e.target.value)
+                            }
+                            id="name"
                             label="Имя"
                             type="text"
                         ></Input>
                         <Input
-                            onChange={(v) => valueChange('email', v)}
+                            onChange={(e) =>
+                                valueChange('email', e.target.value)
+                            }
                             id="email"
                             label="Почта"
                             type="text"
                         ></Input>
                         <Input
-                            onChange={(v) => valueChange('password', v)}
+                            onChange={(e) =>
+                                valueChange('password', e.target.value)
+                            }
                             id="password"
                             label="Пароль"
                             type="password"
                         ></Input>
                         <Input
-                            onChange={(v) => valueChange('phone', v)}
+                            onChange={(e) =>
+                                valueChange('phone', e.target.value)
+                            }
                             id="phone"
                             label="Телефон"
                             type="text"
                         ></Input>
                         <Input
-                            onChange={(v) => valueChange('country', v)}
+                            onChange={(e) =>
+                                valueChange('country', e.target.value)
+                            }
                             id="country"
                             label="Страна"
                             type="country"

@@ -158,7 +158,7 @@ const router = createBrowserRouter(
                         path="day"
                         element={
                             <ProtectedRoute>
-                                <StatisticList tab="day" />
+                                <StatisticList tab="today" />
                             </ProtectedRoute>
                         }
                     />

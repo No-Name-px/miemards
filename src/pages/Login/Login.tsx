@@ -37,13 +37,17 @@ export default function LoginPage() {
                     <Header hasBack>Вход</Header>
                     <div className={styles.content}>
                         <Input
-                            onChange={(v) => valueChange('email', v)}
+                            onChange={(e) =>
+                                valueChange('email', e.target.value)
+                            }
                             id="email"
                             label="Почта"
                             type="text"
                         ></Input>
                         <Input
-                            onChange={(v) => valueChange('password', v)}
+                            onChange={(e) =>
+                                valueChange('password', e.target.value)
+                            }
                             id="password"
                             label="Пароль"
                             type="password"

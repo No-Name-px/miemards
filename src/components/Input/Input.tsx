@@ -1,22 +1,27 @@
-import { HTMLInputTypeAttribute, useCallback, useState } from 'react';
+import {
+    ChangeEvent,
+    HTMLInputTypeAttribute,
+    InputHTMLAttributes,
+    useCallback,
+    useState,
+} from 'react';
 import styles from './Input.module.css';
 import cn from 'classnames';
 
-interface Props {
-    onChange: (newValue: string) => void;
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
     id: string;
     type?: HTMLInputTypeAttribute;
     label: string;
 }
 
 export default function Input(props: Props) {
-    const { onChange, type = 'text', id, label } = props;
-    const [isActive, setIsActive] = useState(false);
+    const { onChange, type = 'text', id, label, value } = props;
+    const [isActive, setIsActive] = useState(value && value !== '');
 
     const handleChangeValue = useCallback(
-        (newValue: string) => {
-            onChange(newValue);
-            setIsActive(newValue !== '');
+        (e: ChangeEvent<HTMLInputElement>) => {
+            if (onChange) onChange(e);
+            setIsActive(e.target.value !== '');
         },
         [onChange, setIsActive]
     );
@@ -29,10 +34,11 @@ export default function Input(props: Props) {
                 })}
             >
                 <input
+                    value={value}
                     className={styles.input}
                     type={type}
                     id={id}
-                    onChange={(e) => handleChangeValue(e.target.value)}
+                    onChange={handleChangeValue}
                 />
 
                 <label className={styles.label} htmlFor={id}>

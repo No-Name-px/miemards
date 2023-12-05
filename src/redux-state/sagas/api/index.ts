@@ -4,3 +4,6 @@ export enum ContentTypes {
 }
 
 export * from './auth';
+export * from './user';
+export * from './analytics';
+export * from './decks';

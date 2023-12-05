@@ -10,6 +10,10 @@ export interface withRedirect<T> {
     navigate: NavigateFunction;
 }
 
+export interface Token {
+    token: string;
+}
+
 export interface Redirect {
     navigate: NavigateFunction;
 }

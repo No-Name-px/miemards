@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { AnalyticsPeriods } from 'types';
 import CardIconed from 'components/CardIconed';
 import TextTitle from 'components/TextTitle';
@@ -39,10 +39,12 @@ export default function StatisticList(props: Props) {
                         <TextTitle>{currentStats.totalWords}</TextTitle>
                         <TextPrimary>Слов изучено</TextPrimary>
                     </CardIconed>
-                    <CardIconed bgColor="var(--add-pallet-4)" icon={Trophy}>
-                        <TextTitle>{currentStats.ranking}</TextTitle>
-                        <TextPrimary>Место в рейтинге</TextPrimary>
-                    </CardIconed>
+                    {currentStats.ranking && (
+                        <CardIconed bgColor="var(--add-pallet-4)" icon={Trophy}>
+                            <TextTitle>{currentStats.ranking}</TextTitle>
+                            <TextPrimary>Место в рейтинге</TextPrimary>
+                        </CardIconed>
+                    )}
                     <CardIconed bgColor="var(--add-pallet-3)" icon={Check}>
                         <TextTitle>{currentStats.fullyLearnedDecks}</TextTitle>
                         <TextPrimary>Колоды изучено полностью</TextPrimary>

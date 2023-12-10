@@ -5,14 +5,11 @@ import {
     useSelector,
 } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import { createBrowserHistory } from 'history';
 
 import rootReducer from './reducers';
 import rootSaga from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
-
-export const history = createBrowserHistory();
 
 const store = configureStore({
     reducer: rootReducer,

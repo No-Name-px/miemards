@@ -1,18 +1,17 @@
 import axios from 'axios';
 import {
-    createDeckURL,
-    decksFetchURL,
-    generateCardForDeckFetchURL,
-    deckByIdFetchURL,
-    decksDeleteFetchURL,
-    deckUpdateFetchURL,
+    createGroupFetchURL,
+    groupByIdFetchURL,
+    updateGroupFetchURL,
+    deleteGroupFetchURL,
+    groupByUserFetchURL,
 } from 'redux-state/constants';
 import { ContentTypes } from '../../api';
-import { CreateDeck } from 'types';
+import { AccountDataSend } from 'types';
 
-export function createDeckRequest(data: CreateDeck, token: string) {
+export function createGroupRequest(data: AccountDataSend, token: string) {
     return axios({
-        url: createDeckURL,
+        url: createGroupFetchURL,
         method: 'POST',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -22,9 +21,9 @@ export function createDeckRequest(data: CreateDeck, token: string) {
     });
 }
 
-export function deckByIdRequest(id: string, token: string) {
+export function groupByIdRequest(id: string, token: string) {
     return axios({
-        url: deckByIdFetchURL(id),
+        url: groupByIdFetchURL(id),
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -33,9 +32,13 @@ export function deckByIdRequest(id: string, token: string) {
     });
 }
 
-export function updateDeckRequest(id: string, data: CreateDeck, token: string) {
+export function updateGroupRequest(
+    id: string,
+    data: AccountDataSend,
+    token: string
+) {
     return axios({
-        url: deckUpdateFetchURL(id),
+        url: updateGroupFetchURL(id),
         method: 'PATCH',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -45,9 +48,9 @@ export function updateDeckRequest(id: string, data: CreateDeck, token: string) {
     });
 }
 
-export function deleteDeckRequest(id: string, token: string) {
+export function deleteGroupRequest(id: string, token: string) {
     return axios({
-        url: decksDeleteFetchURL(id),
+        url: deleteGroupFetchURL(id),
         method: 'DELETE',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -56,20 +59,9 @@ export function deleteDeckRequest(id: string, token: string) {
     });
 }
 
-export function decksByUserRequest(token: string) {
+export function groupsByUserRequest(token: string) {
     return axios({
-        url: decksFetchURL,
-        method: 'GET',
-        headers: {
-            'Content-Type': ContentTypes.APPLICATION_JSON,
-            Authorization: `Bearer ${token}`,
-        },
-    });
-}
-
-export function deckCardGenerationRequest(id: string, token: string) {
-    return axios({
-        url: generateCardForDeckFetchURL(id),
+        url: groupByUserFetchURL,
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,

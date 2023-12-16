@@ -3,6 +3,9 @@ export const deckCreatePath = '/decks/create';
 export const deckPath = (id: string | number) => `/decks/${id}`;
 export const deckEditPath = (id: string | number) => `/decks/${id}/edit`;
 
+export const cardCreatePath = (id: string | number) =>
+    `/decks/${id}/cards/create`;
+
 export const authPath = '/auth';
 export const registerPath = '/auth/register';
 export const loginPath = '/auth/login';

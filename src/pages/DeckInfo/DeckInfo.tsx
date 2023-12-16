@@ -4,19 +4,34 @@ import Page from 'components/Page/Page';
 import Header from 'components/Header';
 import { Deck } from 'types/decks';
 import MockedDecks from 'mocks/decks.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './DeckInfo.module.css';
 import Card from 'components/Card';
 import TextTitle from 'components/TextTitle';
 import TextPrimary from 'components/TextPrimary/TextPrimary';
 import TextSecondary from 'components/TextSecondary/TextSecondary';
 import Image from 'components/Image';
+import { useAppDispatch, useAppSelector } from 'redux-state';
+import { getCards, loadDeck } from 'redux-state/actions';
 
 export default function DeckPage() {
-    const { deckId } = useParams();
-    const [deck] = useState<Deck | undefined>(
-        MockedDecks.find((item) => item.id.toString() === deckId)
-    );
+    const { id } = useParams();
+    const dispatch = useAppDispatch();
+
+    const token = useAppSelector((state) => state.auth);
+
+    useEffect(() => {
+        console.log(token, id);
+        if (!token || !id) return;
+        dispatch(loadDeck({ token, id: id }));
+        dispatch(getCards({ token, id: id }));
+    }, [token, dispatch, id]);
+
+    const deck = useAppSelector((state) => state.deck);
+    const cards = useAppSelector((state) => state.cards);
+
+    console.log(cards);
+
     return (
         <div>
             {!deck ? (
@@ -28,32 +43,35 @@ export default function DeckPage() {
                             {deck.name}
                         </Header>
                         <div className={styles.cards}>
-                            {deck.cards.map((card, index) => (
-                                <div key={index} className={styles.card}>
+                            {Object.keys(cards).map((key) => (
+                                <div
+                                    key={cards[key].id}
+                                    className={styles.card}
+                                >
                                     <NavLink
                                         className={styles.cardLink}
-                                        to={`cards/${index + 1}`}
+                                        to={`cards/${cards[key].id}`}
                                     >
                                         <Card className={styles.card}>
                                             <TextTitle>
-                                                {card.wordEN
-                                                    ? card.wordEN
+                                                {cards[key].english_word
+                                                    ? cards[key].english_word
                                                     : '-'}
                                             </TextTitle>
                                             <TextPrimary
                                                 className={styles.textPrimary}
                                             >
-                                                {card.wordRU}
+                                                {cards[key].translation}
                                             </TextPrimary>
                                             <TextSecondary>
-                                                {card.description}
+                                                {cards[key].explanation}
                                             </TextSecondary>
-                                            {card.img && (
+                                            {/* {cards[key]?.img && (
                                                 <Image
-                                                    src={card.img}
+                                                    src={cards[key].img}
                                                     alt="cardImg"
                                                 ></Image>
-                                            )}
+                                            )} */}
                                         </Card>
                                     </NavLink>
                                 </div>

@@ -7,6 +7,7 @@
 
 .buttonContainer {
     display: flex;
+    gap: var(--spacing-m);
     flex-direction: column;
     text-decoration: none;
 }

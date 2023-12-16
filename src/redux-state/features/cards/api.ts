@@ -1,18 +1,19 @@
 import axios from 'axios';
 import {
-    createDeckURL,
-    decksFetchURL,
-    generateCardForDeckFetchURL,
-    deckByIdFetchURL,
-    decksDeleteFetchURL,
-    deckUpdateFetchURL,
+    createCardFetchURL,
+    cardByIdFetchURL,
+    cardUpdateFetchURL,
+    deleteCardFetchURL,
+    cardsFromDeckFetchURL,
+    generateCardImageFetchURL,
+    generateCardTranslateFetchURL,
 } from 'redux-state/constants';
 import { ContentTypes } from '../../api';
-import { CreateDeck } from 'types';
+import { CreateCard } from 'types';
 
-export function createDeckRequest(data: CreateDeck, token: string) {
+export function createCardRequest(data: CreateCard, token: string) {
     return axios({
-        url: createDeckURL,
+        url: createCardFetchURL,
         method: 'POST',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -22,9 +23,9 @@ export function createDeckRequest(data: CreateDeck, token: string) {
     });
 }
 
-export function deckByIdRequest(id: string, token: string) {
+export function cardByIdRequest(id: string, token: string) {
     return axios({
-        url: deckByIdFetchURL(id),
+        url: cardByIdFetchURL(id),
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -33,9 +34,9 @@ export function deckByIdRequest(id: string, token: string) {
     });
 }
 
-export function updateDeckRequest(id: string, data: CreateDeck, token: string) {
+export function updateCardRequest(id: string, data: CreateCard, token: string) {
     return axios({
-        url: deckUpdateFetchURL(id),
+        url: cardUpdateFetchURL(id),
         method: 'PATCH',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -45,9 +46,9 @@ export function updateDeckRequest(id: string, data: CreateDeck, token: string) {
     });
 }
 
-export function deleteDeckRequest(id: string, token: string) {
+export function deleteCardRequest(id: string, token: string) {
     return axios({
-        url: decksDeleteFetchURL(id),
+        url: deleteCardFetchURL(id),
         method: 'DELETE',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -56,9 +57,9 @@ export function deleteDeckRequest(id: string, token: string) {
     });
 }
 
-export function decksByUserRequest(token: string) {
+export function cardsByDeckRequest(deckid: string, token: string) {
     return axios({
-        url: decksFetchURL,
+        url: cardsFromDeckFetchURL(deckid),
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -67,9 +68,20 @@ export function decksByUserRequest(token: string) {
     });
 }
 
-export function deckCardGenerationRequest(id: string, token: string) {
+export function cardTranslationRequest(id: string, token: string) {
     return axios({
-        url: generateCardForDeckFetchURL(id),
+        url: generateCardTranslateFetchURL(id),
+        method: 'GET',
+        headers: {
+            'Content-Type': ContentTypes.APPLICATION_JSON,
+            Authorization: `Bearer ${token}`,
+        },
+    });
+}
+
+export function cardImageRequest(id: string, token: string) {
+    return axios({
+        url: generateCardImageFetchURL(id),
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,

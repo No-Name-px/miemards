@@ -1,18 +1,20 @@
 import axios from 'axios';
 import {
-    createDeckURL,
-    decksFetchURL,
-    generateCardForDeckFetchURL,
-    deckByIdFetchURL,
-    decksDeleteFetchURL,
-    deckUpdateFetchURL,
+    createSocialAccountFetchURL,
+    socialAccountByIdFetchURL,
+    socialAccountUpdateFetchURL,
+    socialAccountDeleteFetchURL,
+    socialAccountByUserFetchURL,
 } from 'redux-state/constants';
 import { ContentTypes } from '../../api';
-import { CreateDeck } from 'types';
+import { AccountDataSend } from 'types';
 
-export function createDeckRequest(data: CreateDeck, token: string) {
+export function createSocialAccountRequest(
+    data: AccountDataSend,
+    token: string
+) {
     return axios({
-        url: createDeckURL,
+        url: createSocialAccountFetchURL,
         method: 'POST',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -22,9 +24,9 @@ export function createDeckRequest(data: CreateDeck, token: string) {
     });
 }
 
-export function deckByIdRequest(id: string, token: string) {
+export function socialAccountByIdRequest(id: string, token: string) {
     return axios({
-        url: deckByIdFetchURL(id),
+        url: socialAccountByIdFetchURL(id),
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -33,9 +35,13 @@ export function deckByIdRequest(id: string, token: string) {
     });
 }
 
-export function updateDeckRequest(id: string, data: CreateDeck, token: string) {
+export function updateSocialAccountRequest(
+    id: string,
+    data: AccountDataSend,
+    token: string
+) {
     return axios({
-        url: deckUpdateFetchURL(id),
+        url: socialAccountUpdateFetchURL(id),
         method: 'PATCH',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -45,9 +51,9 @@ export function updateDeckRequest(id: string, data: CreateDeck, token: string) {
     });
 }
 
-export function deleteDeckRequest(id: string, token: string) {
+export function deleteSocialAccountRequest(id: string, token: string) {
     return axios({
-        url: decksDeleteFetchURL(id),
+        url: socialAccountDeleteFetchURL(id),
         method: 'DELETE',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -56,20 +62,9 @@ export function deleteDeckRequest(id: string, token: string) {
     });
 }
 
-export function decksByUserRequest(token: string) {
+export function socialAccountByUserRequest(token: string) {
     return axios({
-        url: decksFetchURL,
-        method: 'GET',
-        headers: {
-            'Content-Type': ContentTypes.APPLICATION_JSON,
-            Authorization: `Bearer ${token}`,
-        },
-    });
-}
-
-export function deckCardGenerationRequest(id: string, token: string) {
-    return axios({
-        url: generateCardForDeckFetchURL(id),
+        url: socialAccountByUserFetchURL,
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,

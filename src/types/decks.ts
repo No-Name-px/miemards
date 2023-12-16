@@ -1,7 +1,22 @@
 export interface Deck {
-    creator: string;
     name: string;
     description: string;
+}
+
+export interface CreateDeck {
+    name: string;
+    description: string;
+}
+
+export interface AddDeck {
+    name: string;
+    description: string;
+    id: string;
+}
+
+export interface GetDeck {
+    id: string;
+    token: string;
 }
 
 export interface DecksData {
@@ -9,6 +24,5 @@ export interface DecksData {
 }
 
 export interface GetDecks {
-    id: string;
     token: string;
 }

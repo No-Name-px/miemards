@@ -22,11 +22,12 @@ export default function ProfilePageEdit() {
     const token = useAppSelector((state) => state.auth);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
     const [editValues, setEditValues] = useState<ProfileEdit>({
-        username: user.username || '',
-        phone: user.phone || '',
-        email: user.email || '',
-        country: user.country || '',
+        username: user?.username || '',
+        phone: user?.phone || '',
+        email: user?.email || '',
+        country: user?.country || '',
         password: '',
     });
 
@@ -41,6 +42,7 @@ export default function ProfilePageEdit() {
     );
 
     const onSubmitForm = useCallback(() => {
+        if (!user || !token) return;
         dispatch(
             UserActions.updateUser({
                 data: {
@@ -51,7 +53,7 @@ export default function ProfilePageEdit() {
                 navigate,
             })
         );
-    }, [dispatch, navigate, editValues, token, user.id]);
+    }, [dispatch, navigate, editValues, token, user]);
     return (
         <>
             <Container>

@@ -1,10 +1,11 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes, useParams } from 'react-router-dom';
 import ActionButton from './ActionButton';
 import Plus from '../../assets/icons/plus.svg?react';
 import Play from '../../assets/icons/media-play.svg?react';
 import styles from './ActionButtonProvider.module.css';
 
 export default function ActionButtonProvider() {
+    const deckId = useParams()?.id;
     return (
         <Routes>
             <Route
@@ -18,7 +19,10 @@ export default function ActionButtonProvider() {
             <Route
                 path="decks/:deckId/edit"
                 element={
-                    <NavLink to="/new-card-test-url" className={styles.link}>
+                    <NavLink
+                        to={`/decks/${deckId}/cards/create`}
+                        className={styles.link}
+                    >
                         <ActionButton title="Слово" icon={Plus} />
                     </NavLink>
                 }

@@ -1,4 +1,4 @@
-import { NavLink, Navigate, useParams } from 'react-router-dom';
+import { NavLink, Navigate, useNavigate, useParams } from 'react-router-dom';
 import Container from 'components/Container';
 import Page from 'components/Page';
 import Header from 'components/Header';
@@ -6,7 +6,7 @@ import styles from './DeckEdit.module.css';
 import Input from 'components/Input';
 import MockedDecks from 'mocks/decks.json';
 import { Deck } from 'types/decks';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import Card from 'components/Card';
 import TextPrimary from 'components/TextPrimary';
 import TextSecondary from 'components/TextSecondary';
@@ -16,12 +16,63 @@ import Edit from 'assets/icons/edit-s.svg?react';
 import Delete from 'assets/icons/trash-s.svg?react';
 import Image from 'components/Image';
 import Button from 'components/Button';
+import { useAppDispatch, useAppSelector } from 'redux-state';
+import { deleteDeck, editDeck, getCards, loadDeck } from 'redux-state/actions';
+import TextArea from 'components/TextArea';
+
+interface FormValues {
+    name: string;
+    description: string;
+}
 
 export default function DeckPageEdit() {
-    const { deckId } = useParams();
-    const [deck] = useState<Deck | undefined>(
-        MockedDecks.find((item) => item.id.toString() === deckId)
+    const { id } = useParams();
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+    const token = useAppSelector((state) => state.auth);
+
+    useEffect(() => {
+        console.log(token, id);
+        if (!token || !id) return;
+        dispatch(loadDeck({ token, id: id }));
+        dispatch(getCards({ token, id: id }));
+    }, [token, dispatch, id]);
+
+    const deck = useAppSelector((state) => state.deck);
+    const cards = useAppSelector((state) => state.cards);
+
+    const [formValues, setFormValues] = useState<FormValues>({
+        name: deck?.name || '',
+        description: deck?.description || '',
+    });
+
+    const handleUpdate = useCallback(() => {
+        if (!token || !id) return;
+        dispatch(
+            editDeck({
+                token,
+                data: {
+                    id,
+                    name: formValues.name,
+                    description: formValues.description,
+                },
+                navigate,
+            })
+        );
+    }, [navigate, token, id, dispatch, formValues]);
+
+    const handleChangeFromValues = useCallback(
+        (key: keyof FormValues, value: string) => {
+            setFormValues((state) => ({ ...state, [key]: value }));
+        },
+        []
     );
+
+    const handleDelete = useCallback(() => {
+        if (!token || !id) return;
+        dispatch(deleteDeck({ token, data: id, navigate }));
+    }, [navigate, token, id, dispatch]);
 
     return (
         <div>
@@ -33,18 +84,36 @@ export default function DeckPageEdit() {
                         <Header hasBack>Редактирование колоды</Header>
                         <div className={styles.content}>
                             <Input
-                                onChange={() => {}}
+                                value={formValues.name}
+                                onChange={(e) =>
+                                    handleChangeFromValues(
+                                        'name',
+                                        e.target.value
+                                    )
+                                }
                                 id="deckName"
                                 label="Название колоды"
                             ></Input>
+                            <TextArea
+                                onChange={(value) =>
+                                    handleChangeFromValues('description', value)
+                                }
+                                id="deckDescription"
+                                label="Описание"
+                                rows={2}
+                            ></TextArea>
                             <div className={styles.cardsContainer}>
-                                {deck.cards.map((card, index) => (
-                                    <div key={index} className={styles.card}>
+                                {Object.keys(cards).map((key) => (
+                                    <div
+                                        key={cards[key].id}
+                                        className={styles.card}
+                                    >
                                         <Card className={styles.card}>
                                             <div className={styles.cardHeader}>
                                                 <TextTitle>
-                                                    {card.wordEN
-                                                        ? card.wordEN
+                                                    {cards[key].english_word
+                                                        ? cards[key]
+                                                              .english_word
                                                         : '-'}
                                                 </TextTitle>
                                                 <div
@@ -53,9 +122,7 @@ export default function DeckPageEdit() {
                                                     }
                                                 >
                                                     <NavLink
-                                                        to={`/decks/${deckId}/cards/${
-                                                            index + 1
-                                                        }/edit`}
+                                                        to={`/decks/${id}/cards/${cards[key].id}/edit`}
                                                     >
                                                         <IconAccent
                                                             size="s"
@@ -71,24 +138,29 @@ export default function DeckPageEdit() {
                                             <TextPrimary
                                                 className={styles.textPrimary}
                                             >
-                                                {card.wordRU}
+                                                {cards[key].translation}
                                             </TextPrimary>
                                             <TextSecondary>
-                                                {card.description}
+                                                {cards[key].explanation}
                                             </TextSecondary>
-                                            {card.img && (
+                                            {/* {card.img && (
                                                 <Image
                                                     src={card.img}
                                                     alt="cardImg"
                                                 ></Image>
-                                            )}
+                                            )} */}
                                         </Card>
                                     </div>
                                 ))}
                             </div>
                             <div className={styles.buttonsContainer}>
                                 <Button>Сгенерировать рекомендации</Button>
-                                <Button type="accent">Сохранить</Button>
+                                <Button type="cancel" onClick={handleDelete}>
+                                    Удалить колоду
+                                </Button>
+                                <Button type="accent" onClick={handleUpdate}>
+                                    Сохранить
+                                </Button>
                             </div>
                         </div>
                     </Page>

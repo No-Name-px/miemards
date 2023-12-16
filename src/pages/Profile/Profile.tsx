@@ -8,18 +8,30 @@ import Mail from 'assets/icons/letter.svg?react';
 import Home from 'assets/icons/home.svg?react';
 import Header from 'components/Header';
 import { useAppDispatch, useAppSelector } from 'redux-state';
-import { useCallback } from 'react';
-import { AuthActions } from 'redux-state/actions';
+import { useCallback, useEffect } from 'react';
+import { AuthActions, UserActions } from 'redux-state/actions';
 import { useNavigate } from 'react-router-dom';
 
 export default function Profile() {
     const user = useAppSelector((state) => state.user);
+    const token = useAppSelector((state) => state.auth);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!token) return;
+        dispatch(UserActions.getUser({ token }));
+    }, [token, dispatch]);
 
     const onLogout = useCallback(() => {
         dispatch(AuthActions.logout({ navigate }));
     }, [dispatch, navigate]);
+
+    const onDelete = useCallback(() => {
+        if (!token) return;
+        dispatch(UserActions.deleteUser({ navigate, data: { token } }));
+    }, [dispatch, navigate, token]);
+
     return (
         <>
             <Container>
@@ -36,7 +48,12 @@ export default function Profile() {
                             <p>{user?.country}</p>
                         </IconInfo>
                     </div>
-                    <Button onClick={onLogout}>Выйти из аккаунта</Button>
+                    <div className={styles.buttonContainer}>
+                        <Button type="cancel" onClick={onDelete}>
+                            Удалить аккаунт
+                        </Button>
+                        <Button onClick={onLogout}>Выйти из аккаунта</Button>
+                    </div>
                 </Page>
             </Container>
         </>

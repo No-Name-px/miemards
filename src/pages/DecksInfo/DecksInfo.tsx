@@ -2,26 +2,24 @@ import { useEffect } from 'react';
 import Container from 'components/Container';
 import Header from 'components/Header';
 import Page from 'components/Page';
-import MockedDecks from 'mocks/decks.json';
 import Card from 'components/Card';
 import TextTitle from 'components/TextTitle';
-import { Deck } from 'types/decks';
 import styles from './DecksInfo.module.css';
-import ProgressCounter from 'components/InfoAccent';
 import IconAccent from 'components/IconAccent';
 import Play from 'assets/icons/media-play.svg?react';
 import { NavLink } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'redux-state';
-import { DecksActions } from 'redux-state/actions';
+import { getDecks } from 'redux-state/actions';
 
 export default function Decks() {
     const dispatch = useAppDispatch();
 
-    const user = useAppSelector((state) => state.user);
+    const token = useAppSelector((state) => state.auth);
 
     useEffect(() => {
-        dispatch(DecksActions.getDecks(user?.id));
-    }, [user, dispatch]);
+        if (!token) return;
+        dispatch(getDecks({ token }));
+    }, [token, dispatch]);
 
     const decks = useAppSelector((state) => state.decks);
 
@@ -31,36 +29,39 @@ export default function Decks() {
                 <Page>
                     <Header>Все колоды</Header>
                     <div className={styles.decks}>
-                        {/* {decks.map((deck) => (
-                            <NavLink
-                                className={styles.cardLink}
-                                to={`${deck.id}`}
-                                key={deck.id}
-                            >
-                                <Card className={styles.deckCard}>
-                                    <div className={styles.cardContent}>
-                                        <div className={styles.header}>
-                                            <TextTitle>{deck.name}</TextTitle>
-                                            <ProgressCounter
-                                                className={styles.progress}
-                                            >
-                                                {deck.wordsLearned}/
-                                                {deck.wordsAll}
-                                            </ProgressCounter>
+                        {decks &&
+                            Object.keys(decks).map((id) => (
+                                <NavLink
+                                    className={styles.cardLink}
+                                    to={`${id}`}
+                                    key={id}
+                                >
+                                    <Card className={styles.deckCard}>
+                                        <div className={styles.cardContent}>
+                                            <div className={styles.header}>
+                                                <TextTitle>
+                                                    {decks[id].name}
+                                                </TextTitle>
+                                                {/* <ProgressCounter
+                                                    className={styles.progress}
+                                                >
+                                                    {decks[id].wordsLearned}/
+                                                    {decks[id].wordsAll}
+                                                </ProgressCounter> */}
+                                            </div>
+                                            <p className={styles.description}>
+                                                {decks[id].description}
+                                            </p>
                                         </div>
-                                        <p className={styles.description}>
-                                            {deck.description}
-                                        </p>
-                                    </div>
-                                    <NavLink to={`${deck.id}/play`}>
-                                        <IconAccent
-                                            className={styles.play}
-                                            icon={Play}
-                                        ></IconAccent>
-                                    </NavLink>
-                                </Card>
-                            </NavLink>
-                        ))} */}
+                                        <NavLink to={`${id}/play`}>
+                                            <IconAccent
+                                                className={styles.play}
+                                                icon={Play}
+                                            ></IconAccent>
+                                        </NavLink>
+                                    </Card>
+                                </NavLink>
+                            ))}
                     </div>
                 </Page>
             </Container>

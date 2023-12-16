@@ -36,6 +36,8 @@ import {
     registerPath,
 } from './constants';
 import { ProtectedRoute } from './components/ProtectedRoute';
+import CardCreate from 'pages/CardCreate';
+import BankCards from 'pages/additional/BankCards';
 // import { history } from 'redux';
 
 const router = createBrowserRouter(
@@ -78,6 +80,14 @@ const router = createBrowserRouter(
                 <Route
                     path="decks/:deckId/cards"
                     element={<Navigate to=".." relative="path" />}
+                />
+                <Route
+                    path="decks/:deckId/cards/create"
+                    element={
+                        <ProtectedRoute>
+                            <CardCreate />
+                        </ProtectedRoute>
+                    }
                 />
                 <Route
                     path="decks/:deckId/cards/:cardId"
@@ -192,6 +202,16 @@ const router = createBrowserRouter(
                     element={
                         <ProtectedRoute>
                             <ProfileEdit />
+                        </ProtectedRoute>
+                    }
+                ></Route>
+
+                {/* ADDITIONAL */}
+                <Route
+                    path={'bankCards'}
+                    element={
+                        <ProtectedRoute>
+                            <BankCards />
                         </ProtectedRoute>
                     }
                 ></Route>

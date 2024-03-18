@@ -75,6 +75,7 @@ function* CreateBankCardsWorker(action: Action<BankCard & Token>) {
             number: action.payload.number,
             id: data.id,
         });
+        yield call(getBankCards, { token: action.payload.token });
     } catch (error: any) {
         console.log(error);
         const massageArray =

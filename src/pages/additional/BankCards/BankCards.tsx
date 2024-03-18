@@ -36,7 +36,7 @@ export default function Decks() {
     useEffect(() => {
         if (!token) return;
         dispatch(getBankCards({ token }));
-    }, [token, dispatch]);
+    }, [token, dispatch, editItemId]);
 
     const bankCards = useAppSelector((state) => state.bankCards);
 
@@ -47,15 +47,25 @@ export default function Decks() {
         } else {
             dispatch(createBankCard({ token, ...formValues }));
         }
-    }, []);
+        setEditItemId(null);
+        dispatch(getBankCards({ token }));
+        setFormValues({
+            number: '',
+            exp_date: '',
+            cvv: '',
+        });
+    }, [dispatch, formValues, token, editItemId]);
 
-    const handleEditItem = useCallback((id: string) => {
-        setEditItemId(id);
-    }, []);
+    const handleEditItem = useCallback(
+        (id: string) => {
+            setEditItemId(id);
+        },
+        [setEditItemId]
+    );
 
     const handleCancel = useCallback(() => {
         setEditItemId(null);
-    }, []);
+    }, [setEditItemId]);
 
     const handleEditForm = useCallback(
         (key: keyof FromVales, value: string) => {
@@ -77,6 +87,7 @@ export default function Decks() {
                             label="Номер карты"
                             id="bankCardNumber"
                             type="number"
+                            value={formValues.number}
                             onChange={(e) =>
                                 handleEditForm('number', e.target.value)
                             }
@@ -85,6 +96,7 @@ export default function Decks() {
                             label="CVV"
                             id="bankCardCvv"
                             type="number"
+                            value={formValues.cvv}
                             onChange={(e) =>
                                 handleEditForm('cvv', e.target.value)
                             }
@@ -93,6 +105,7 @@ export default function Decks() {
                             label="Дата"
                             id="bankCardDate"
                             type="text"
+                            value={formValues.exp_date}
                             onChange={(e) =>
                                 handleEditForm('exp_date', e.target.value)
                             }

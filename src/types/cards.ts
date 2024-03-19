@@ -16,6 +16,11 @@ export interface GetCards extends Token {
     id: string;
 }
 
+export interface GetCard {
+    id: string;
+    token: string;
+}
+
 export interface CreateCard {
     english_word: string;
     translation: string;

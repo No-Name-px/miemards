@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styles from './TextArea.module.css';
 import cn from 'classnames';
 
@@ -7,11 +7,12 @@ interface Props {
     id: string;
     label: string;
     rows?: number;
+    value?: string;
 }
 
 export default function TextArea(props: Props) {
-    const { onChange, id, label, rows = 1 } = props;
-    const [isActive, setIsActive] = useState(false);
+    const { onChange, id, label, rows = 1, value } = props;
+    const [isActive, setIsActive] = useState(value && value !== '');
 
     const handleChangeValue = useCallback(
         (newValue: string) => {
@@ -21,6 +22,10 @@ export default function TextArea(props: Props) {
         [onChange, setIsActive]
     );
 
+    useEffect(() => {
+        if (value) setIsActive(value !== '');
+    }, [value]);
+
     return (
         <>
             <div
@@ -29,6 +34,7 @@ export default function TextArea(props: Props) {
                 })}
             >
                 <textarea
+                    value={value}
                     className={styles.textarea}
                     id={id}
                     onChange={(e) => handleChangeValue(e.target.value)}

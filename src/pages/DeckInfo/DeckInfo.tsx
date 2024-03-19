@@ -50,7 +50,7 @@ export default function DeckPage() {
                                 >
                                     <NavLink
                                         className={styles.cardLink}
-                                        to={`cards/${cards[key].id}`}
+                                        to={`cards/${key}`}
                                     >
                                         <Card className={styles.card}>
                                             <TextTitle>

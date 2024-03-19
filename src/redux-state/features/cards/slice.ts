@@ -1,14 +1,22 @@
-import { Card, Cards, CreateCard, GetCards, Token, withRedirect } from 'types';
+import {
+    Card,
+    Cards,
+    CreateCard,
+    GetCard,
+    GetCards,
+    Token,
+    withRedirect,
+} from 'types';
 
 const initialStateCards: Cards = {};
 
-// const initialStateActiveCard: Card = {
-//     deckId: '',
-//     englishWord: '',
-//     translation: '',
-//     explanation: '',
-//     id: '',
-// };
+const initialStateActiveCard: Card = {
+    deck_id: '',
+    english_word: '',
+    translation: '',
+    explanation: '',
+    id: '',
+};
 
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
@@ -27,34 +35,43 @@ const decksSlice = createSlice({
         addCard: (state, action: PayloadAction<Card>) => {
             state[action.payload.id] = action.payload;
         },
-        // editDeck: (
-        //     state,
-        //     action: PayloadAction<withRedirect<AddDeck> & Token>
-        // ) => state,
-        // deleteDeck: (
-        //     state,
-        //     action: PayloadAction<withRedirect<string> & Token>
-        // ) => state,
-        // removeDeck: (state, action: PayloadAction<string>) => {
-        //     delete state[action.payload];
-        //     return state;
-        // },
+        editCard: (state, action: PayloadAction<withRedirect<Card> & Token>) =>
+            state,
+        deleteCard: (
+            state,
+            action: PayloadAction<
+                | (withRedirect<{ deckId: string; id: string }> & Token)
+                | ({ data: { deckId: string; id: string } } & Token)
+            >
+        ) => state,
+        removeCard: (state, action: PayloadAction<string>) => {
+            delete state[action.payload];
+            return state;
+        },
     },
 });
 
-// const deckSlice = createSlice({
-//     name: 'Deck',
-//     initialState: initialStateActiveCard,
-//     reducers: {
-//         setDeck: (state, action: PayloadAction<Deck>) => {
-//             console.log(action.payload);
-//             return action.payload;
-//         },
-//         loadDeck: (state, action: PayloadAction<GetDeck>) => state,
-//     },
-// });
+const cardSlice = createSlice({
+    name: 'Card',
+    initialState: initialStateActiveCard,
+    reducers: {
+        setCard: (state, action: PayloadAction<Card>) => {
+            console.log(action.payload);
+            return action.payload;
+        },
+        loadCard: (state, action: PayloadAction<GetCard>) => state,
+    },
+});
 
 export const CardsReducer = decksSlice.reducer;
-// export const DeckReducer = deckSlice.reducer;
-export const { setCards, getCards, createCard, addCard } = decksSlice.actions;
-// export const { loadDeck, setDeck } = deckSlice.actions;
+export const CardReducer = cardSlice.reducer;
+export const {
+    setCards,
+    getCards,
+    createCard,
+    addCard,
+    deleteCard,
+    removeCard,
+    editCard,
+} = decksSlice.actions;
+export const { loadCard, setCard } = cardSlice.actions;

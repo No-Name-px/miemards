@@ -2,6 +2,10 @@ export const allDecksPath = '/decks';
 export const deckCreatePath = '/decks/create';
 export const deckPath = (id: string | number) => `/decks/${id}`;
 export const deckEditPath = (id: string | number) => `/decks/${id}/edit`;
+export const cardPath = (deckId: string | number, id: string) =>
+    `/decks/${deckId}/cards/${id}`;
+export const cardEdit = (deckId: string | number, id: string) =>
+    `/decks/${deckId}/cards/${id}/edit`;
 
 export const cardCreatePath = (id: string | number) =>
     `/decks/${id}/cards/create`;

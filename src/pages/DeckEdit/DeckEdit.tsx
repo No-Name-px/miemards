@@ -4,8 +4,6 @@ import Page from 'components/Page';
 import Header from 'components/Header';
 import styles from './DeckEdit.module.css';
 import Input from 'components/Input';
-import MockedDecks from 'mocks/decks.json';
-import { Deck } from 'types/decks';
 import { useCallback, useEffect, useState } from 'react';
 import Card from 'components/Card';
 import TextPrimary from 'components/TextPrimary';
@@ -14,10 +12,15 @@ import TextTitle from 'components/TextTitle';
 import IconAccent from 'components/IconAccent';
 import Edit from 'assets/icons/edit-s.svg?react';
 import Delete from 'assets/icons/trash-s.svg?react';
-import Image from 'components/Image';
 import Button from 'components/Button';
 import { useAppDispatch, useAppSelector } from 'redux-state';
-import { deleteDeck, editDeck, getCards, loadDeck } from 'redux-state/actions';
+import {
+    deleteCard,
+    deleteDeck,
+    editDeck,
+    getCards,
+    loadDeck,
+} from 'redux-state/actions';
 import TextArea from 'components/TextArea';
 
 interface FormValues {
@@ -31,6 +34,13 @@ export default function DeckPageEdit() {
     const navigate = useNavigate();
 
     const token = useAppSelector((state) => state.auth);
+    const deck = useAppSelector((state) => state.deck);
+    const cards = useAppSelector((state) => state.cards);
+
+    const [formValues, setFormValues] = useState<FormValues>({
+        name: '',
+        description: '',
+    });
 
     useEffect(() => {
         console.log(token, id);
@@ -39,13 +49,14 @@ export default function DeckPageEdit() {
         dispatch(getCards({ token, id: id }));
     }, [token, dispatch, id]);
 
-    const deck = useAppSelector((state) => state.deck);
-    const cards = useAppSelector((state) => state.cards);
-
-    const [formValues, setFormValues] = useState<FormValues>({
-        name: deck?.name || '',
-        description: deck?.description || '',
-    });
+    useEffect(() => {
+        if (deck?.name && deck.description) {
+            setFormValues({
+                name: deck.name,
+                description: deck.description,
+            });
+        }
+    }, [deck]);
 
     const handleUpdate = useCallback(() => {
         if (!token || !id) return;
@@ -67,6 +78,19 @@ export default function DeckPageEdit() {
             setFormValues((state) => ({ ...state, [key]: value }));
         },
         []
+    );
+
+    const handleDeleteCard = useCallback(
+        (cardId: string) => {
+            if (!token || !id) return;
+            dispatch(
+                deleteCard({
+                    token,
+                    data: { id: cardId, deckId: id },
+                })
+            );
+        },
+        [token, id, dispatch]
     );
 
     const handleDelete = useCallback(() => {
@@ -95,6 +119,7 @@ export default function DeckPageEdit() {
                                 label="Название колоды"
                             ></Input>
                             <TextArea
+                                value={formValues.description}
                                 onChange={(value) =>
                                     handleChangeFromValues('description', value)
                                 }
@@ -122,17 +147,26 @@ export default function DeckPageEdit() {
                                                     }
                                                 >
                                                     <NavLink
-                                                        to={`/decks/${id}/cards/${cards[key].id}/edit`}
+                                                        to={`/decks/${id}/cards/${key}/edit`}
                                                     >
                                                         <IconAccent
                                                             size="s"
                                                             icon={Edit}
                                                         ></IconAccent>
                                                     </NavLink>
-                                                    <IconAccent
-                                                        size="s"
-                                                        icon={Delete}
-                                                    ></IconAccent>
+                                                    <NavLink
+                                                        to={``}
+                                                        onClick={() =>
+                                                            handleDeleteCard(
+                                                                key
+                                                            )
+                                                        }
+                                                    >
+                                                        <IconAccent
+                                                            size="s"
+                                                            icon={Delete}
+                                                        ></IconAccent>
+                                                    </NavLink>
                                                 </div>
                                             </div>
                                             <TextPrimary

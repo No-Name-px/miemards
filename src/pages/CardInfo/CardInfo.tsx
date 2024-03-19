@@ -1,28 +1,43 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import Container from 'components/Container';
 import Page from 'components/Page';
 import Header from 'components/Header';
 import Card from 'components/Card';
 import TextTitle from 'components/TextTitle';
 import TextPrimary from 'components/TextPrimary';
-import MockedDecks from 'mocks/decks.json';
-import { useState } from 'react';
-import { Card as TCard } from 'types/decks';
+import { useCallback, useEffect } from 'react';
 import styles from './CardInfo.module.css';
 import Button from 'components/Button';
 import TextSecondary from 'components/TextSecondary';
 import Image from 'components/Image';
+import { useAppDispatch, useAppSelector } from 'redux-state';
+import { deleteCard, loadCard } from 'redux-state/actions';
 
 export default function CardPage() {
     const { deckId, cardId } = useParams();
-    const [card] = useState<TCard | undefined>(
-        cardId
-            ? MockedDecks.find((item) => item.id.toString() === deckId)?.cards[
-                  +cardId - 1
-              ]
-            : undefined
-    );
+    const dispatch = useAppDispatch();
+    const token = useAppSelector((state) => state.auth);
+
+    const card = useAppSelector((state) => state.card);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!token || !cardId) return;
+        dispatch(loadCard({ token, id: cardId }));
+    }, [dispatch, cardId, token]);
+
+    const handleDelete = useCallback(() => {
+        if (!token || !cardId || !deckId) return;
+        dispatch(
+            deleteCard({
+                token,
+                data: { id: cardId, deckId: deckId },
+                navigate,
+            })
+        );
+    }, [token, cardId]);
+
     return (
         <div>
             {!card ? (
@@ -37,23 +52,28 @@ export default function CardPage() {
                             <Card>
                                 <TextTitle>Передняя сторона</TextTitle>
                                 <TextPrimary className={styles.textPrimary}>
-                                    {card.wordRU}
+                                    {card.translation}
                                 </TextPrimary>
                                 <TextSecondary>
-                                    {card.description}
+                                    {card.explanation}
                                 </TextSecondary>
-                                {card.img && (
+                                {/* {card.img && (
                                     <Image src={card.img} alt="cardImg"></Image>
-                                )}
+                                )} */}
                             </Card>
                             <Card>
                                 <TextTitle>Задняя сторона</TextTitle>
                                 <TextPrimary className={styles.textPrimary}>
-                                    {card.wordEN ? card.wordEN : '-'}
+                                    {card.english_word
+                                        ? card.english_word
+                                        : '-'}
                                 </TextPrimary>
                             </Card>
                         </div>
-                        <Button className={styles.delete}>
+                        <Button
+                            className={styles.delete}
+                            onClick={handleDelete}
+                        >
                             Удалить карточку
                         </Button>
                     </Page>

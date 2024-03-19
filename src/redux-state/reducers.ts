@@ -1,8 +1,17 @@
-import { Analytics, DecksData, User, Top, Deck, Cards, BankCards } from 'types';
+import {
+    Analytics,
+    DecksData,
+    User,
+    Top,
+    Deck,
+    Cards,
+    BankCards,
+    Card,
+} from 'types';
 import { AuthReducer } from './features/auth/reducers';
 import { UserReducer } from './features/user/reducers';
 import { DecksReducer, DeckReducer } from './features/decks/slice';
-import { CardsReducer } from './features/cards/slice';
+import { CardReducer, CardsReducer } from './features/cards/slice';
 import { combineReducers } from 'redux';
 import { AnalyticsReducer } from './features/analytics/reducers';
 import { TopReducer } from './features/top/reducers';
@@ -14,6 +23,7 @@ export interface RootReducer {
     decks: DecksData | null;
     deck: Deck | null;
     cards: Cards;
+    card: Card;
     analytics: Analytics | null;
     top: Top | null;
     bankCards: BankCards;
@@ -25,6 +35,7 @@ const rootReducer = combineReducers<RootReducer>({
     decks: DecksReducer as any,
     deck: DeckReducer as any,
     cards: CardsReducer as any,
+    card: CardReducer as any,
     analytics: AnalyticsReducer as any,
     top: TopReducer as any,
     bankCards: BankCardsReducer as any,

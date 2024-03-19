@@ -3,6 +3,7 @@ import {
     HTMLInputTypeAttribute,
     InputHTMLAttributes,
     useCallback,
+    useEffect,
     useState,
 } from 'react';
 import styles from './Input.module.css';
@@ -25,6 +26,10 @@ export default function Input(props: Props) {
         },
         [onChange, setIsActive]
     );
+
+    useEffect(() => {
+        if (value) setIsActive(value !== '');
+    }, [value]);
 
     return (
         <>

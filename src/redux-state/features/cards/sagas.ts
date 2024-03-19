@@ -1,11 +1,27 @@
 import { type Action } from 'redux-actions';
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { CreateCard, GetCards, Token, withRedirect } from 'types';
+import { CreateCard, GetCard, GetCards, Token, withRedirect } from 'types';
 import {} from 'redux-state/actions';
 import { showToast } from 'utiles';
-import { cardsByDeckRequest, createCardRequest } from './api';
-import { allDecksPath, deckEditPath } from 'router/constants';
-import { addCard, createCard, getCards, setCards } from './slice';
+import {
+    cardByIdRequest,
+    cardsByDeckRequest,
+    createCardRequest,
+    deleteCardRequest,
+    updateCardRequest,
+} from './api';
+import { cardPath, deckEditPath, deckPath } from 'router/constants';
+import {
+    addCard,
+    createCard,
+    deleteCard,
+    editCard,
+    getCards,
+    loadCard,
+    removeCard,
+    setCard,
+    setCards,
+} from './slice';
 
 function* GetCardsWorker(action: Action<GetCards>) {
     try {
@@ -29,51 +45,56 @@ function* GetCardsWorker(action: Action<GetCards>) {
     }
 }
 
-// function* GetDeckWorker(action: Action<GetDeck>) {
-//     try {
-//         const { data } = yield call(
-//             deckByIdRequest,
-//             action.payload.id,
-//             action.payload.token
-//         );
-//         yield put(setDeck(data));
-//     } catch (error: any) {
-//         console.log(error);
-//         const massageArray =
-//             typeof error.response.data.detail !== 'string'
-//                 ? error.response.data.detail?.map((det: any) => det.msg)
-//                 : [error.response.data.detail] || ['Неизвестная ошибка'];
-//         for (const msg of massageArray) {
-//             showToast(msg, 'error');
-//         }
-//     }
-// }
+function* GetCardWorker(action: Action<GetCard>) {
+    try {
+        const { data } = yield call(
+            cardByIdRequest,
+            action.payload.id,
+            action.payload.token
+        );
+        yield put(setCard(data));
+    } catch (error: any) {
+        console.log(error);
+        const massageArray =
+            typeof error.response.data.detail !== 'string'
+                ? error.response.data.detail?.map((det: any) => det.msg)
+                : [error.response.data.detail] || ['Неизвестная ошибка'];
+        for (const msg of massageArray) {
+            showToast(msg, 'error');
+        }
+    }
+}
 
-// function* DeleteDeckWorker(action: Action<withRedirect<string> & Token>) {
-//     try {
-//         const { data } = yield call(
-//             deleteDeckRequest,
-//             action.payload.data,
-//             action.payload.token
-//         );
-//         yield put(removeDeck(data));
-//         showToast(`Колода удалена`, 'success');
-//         action.payload.navigate(allDecksPath);
-//     } catch (error: any) {
-//         console.log(error);
-//         const massageArray =
-//             typeof error.response.data.detail !== 'string'
-//                 ? error.response.data.detail?.map((det: any) => det.msg)
-//                 : [error.response.data.detail] || ['Неизвестная ошибка'];
-//         for (const msg of massageArray) {
-//             showToast(msg, 'error');
-//         }
-//     }
-// }
+function* DeleteCardWorker(
+    action: Action<
+        | (withRedirect<{ deckId: string; id: string }> & Token)
+        | ({ data: { deckId: string; id: string } } & Token)
+    >
+) {
+    try {
+        const { data } = yield call(
+            deleteCardRequest,
+            action.payload.data.id,
+            action.payload.token
+        );
+        yield put(removeCard(action.payload.data.id));
+        showToast(`Карта удалена`, 'success');
+        if ('navigate' in action.payload)
+            action.payload.navigate(deckPath(action.payload.data.deckId));
+    } catch (error: any) {
+        console.log(error);
+        const massageArray =
+            typeof error.response.data.detail !== 'string'
+                ? error.response.data.detail?.map((det: any) => det.msg)
+                : [error.response.data.detail] || ['Неизвестная ошибка'];
+        for (const msg of massageArray) {
+            showToast(msg, 'error');
+        }
+    }
+}
 
 function* CreateCardWorker(action: Action<withRedirect<CreateCard> & Token>) {
     try {
-        console.log('sex');
         const { data } = yield call(
             createCardRequest,
             action.payload.data,
@@ -96,39 +117,45 @@ function* CreateCardWorker(action: Action<withRedirect<CreateCard> & Token>) {
     }
 }
 
-// function* UpdateDeckWorker(action: Action<withRedirect<AddDeck> & Token>) {
-//     try {
-//         yield call(
-//             updateDeckRequest,
-//             action.payload.data.id,
-//             {
-//                 description: action.payload.data.description,
-//                 name: action.payload.data.name,
-//             },
-//             action.payload.token
-//         );
-//         yield call(addDeck, {
-//             name: action.payload.data.name,
-//             description: action.payload.data.description,
-//             id: action.payload.data.id,
-//         });
-//         action.payload.navigate(deckPath(action.payload.data.id));
-//     } catch (error: any) {
-//         console.log(error);
-//         const massageArray =
-//             typeof error.response.data.detail !== 'string'
-//                 ? error.response.data.detail?.map((det: any) => det.msg)
-//                 : [error.response.data.detail] || ['Неизвестная ошибка'];
-//         for (const msg of massageArray) {
-//             showToast(msg, 'error');
-//         }
-//     }
-// }
+function* UpdateCardWorker(action: Action<withRedirect<Card> & Token>) {
+    try {
+        yield call(
+            updateCardRequest,
+            action.payload.data.id,
+            {
+                translation: action.payload.data.translation,
+                english_word: action.payload.data.english_word,
+                deck_id: action.payload.data.deck_id,
+                explanation: action.payload.data.explanation,
+            },
+            action.payload.token
+        );
+        yield call(addCard, {
+            translation: action.payload.data.translation,
+            english_word: action.payload.data.english_word,
+            deck_id: action.payload.data.deck_id,
+            explanation: action.payload.data.explanation,
+            id: action.payload.data.id,
+        });
+        action.payload.navigate(
+            cardPath(action.payload.data.deck_id, action.payload.data.id)
+        );
+    } catch (error: any) {
+        console.log(error);
+        const massageArray =
+            typeof error.response.data.detail !== 'string'
+                ? error.response.data.detail?.map((det: any) => det.msg)
+                : [error.response.data.detail] || ['Неизвестная ошибка'];
+        for (const msg of massageArray) {
+            showToast(msg, 'error');
+        }
+    }
+}
 
 export default function* watchCards() {
     yield takeLatest(getCards, GetCardsWorker);
-    // yield takeLatest(loadDeck, GetDeckWorker);
+    yield takeLatest(loadCard, GetCardWorker);
     yield takeLatest(createCard, CreateCardWorker);
-    // yield takeLatest(deleteDeck, DeleteDeckWorker);
-    // yield takeLatest(editDeck, UpdateDeckWorker);
+    yield takeLatest(deleteCard, DeleteCardWorker);
+    yield takeLatest(editCard, UpdateCardWorker);
 }

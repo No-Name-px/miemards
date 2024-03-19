@@ -31,7 +31,7 @@
 .container:focus-within label,
 .container.active label {
     font-size: var(--body-size-xs);
-    top: var(--spacing-xxs);
+    top: calc(var(--spacing-xxs) + var(--body-size-xs) - var(--body-size-xs));
     transform: translate(0, 0);
 }
 

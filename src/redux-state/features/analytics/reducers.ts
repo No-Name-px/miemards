@@ -18,6 +18,9 @@ export const AnalyticsReducer = handleActions<Analytics | null, AnalyticsItem>(
             ...state,
             allTime: action.payload,
         }),
+        [AnalyticsActions.Type.GET_ANALYTICS]: (state, action) => {
+            return state;
+        },
     },
     initialState
 );

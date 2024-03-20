@@ -14,6 +14,7 @@ const initialStateDecks: DecksData = {};
 const initialStateActiveDeck: Deck = {
     name: '',
     description: '',
+    id: '',
 };
 
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
@@ -57,7 +58,7 @@ const deckSlice = createSlice({
     initialState: initialStateActiveDeck,
     reducers: {
         setDeck: (state, action: PayloadAction<Deck>) => {
-            console.log(action.payload);
+            // console.log(action.payload);
             return action.payload;
         },
         loadDeck: (state, action: PayloadAction<GetDeck>) => state,

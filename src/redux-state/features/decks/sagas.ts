@@ -52,7 +52,7 @@ function* GetDeckWorker(action: Action<GetDeck>) {
             action.payload.id,
             action.payload.token
         );
-        yield put(setDeck(data));
+        yield put(setDeck({ ...data, id: action.payload.id }));
     } catch (error: any) {
         console.log(error);
         const massageArray =

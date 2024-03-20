@@ -44,7 +44,7 @@ export default function RatingPageInner(props: Props) {
                                 <ProgressCounter
                                     className={styles.headerAddition}
                                 >
-                                    {user['words learned']} слов
+                                    {user.words_learned} слов
                                 </ProgressCounter>
                             </div>
                             <TextPrimary>{'lol'}</TextPrimary>

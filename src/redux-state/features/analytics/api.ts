@@ -1,10 +1,24 @@
 import axios from 'axios';
 import {
     analyticsAllTimeFetchURL,
+    analyticsSendURL,
     analyticsTodayFetchURL,
     analyticsWeekFetchURL,
 } from 'redux-state/constants';
 import { ContentTypes } from '../../api';
+import { SendAnalytics } from 'types';
+
+export function analyticsSend(data: SendAnalytics, token: string) {
+    return axios({
+        url: analyticsSendURL,
+        method: 'POST',
+        headers: {
+            'Content-Type': ContentTypes.APPLICATION_JSON,
+            Authorization: `Bearer ${token}`,
+        },
+        data,
+    });
+}
 
 export function analyticsTodayRequest(token: string) {
     return axios({

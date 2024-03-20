@@ -1,6 +1,7 @@
 export interface Deck {
     name: string;
     description: string;
+    id: string;
 }
 
 export interface CreateDeck {

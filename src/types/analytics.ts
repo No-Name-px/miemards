@@ -30,3 +30,9 @@ export interface Analytics {
     [AnalyticsPeriods.week]?: AnalyticsItem;
     [AnalyticsPeriods.allTime]?: AnalyticsItem;
 }
+
+export interface SendAnalytics {
+    words_learned: number;
+    decks_learned_fully: number;
+    decks_learned_partly: number;
+}

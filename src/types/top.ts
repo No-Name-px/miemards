@@ -1,6 +1,6 @@
 export interface TopItem {
     username: string;
-    'words learned': string;
+    words_learned: string;
 }
 
 export enum TopPeriods {

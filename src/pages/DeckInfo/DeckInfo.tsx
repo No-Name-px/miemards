@@ -2,9 +2,7 @@ import { NavLink, Navigate, useParams } from 'react-router-dom';
 import Container from 'components/Container/Container';
 import Page from 'components/Page/Page';
 import Header from 'components/Header';
-import { Deck } from 'types/decks';
-import MockedDecks from 'mocks/decks.json';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import styles from './DeckInfo.module.css';
 import Card from 'components/Card';
 import TextTitle from 'components/TextTitle';
@@ -21,7 +19,6 @@ export default function DeckPage() {
     const token = useAppSelector((state) => state.auth);
 
     useEffect(() => {
-        console.log(token, id);
         if (!token || !id) return;
         dispatch(loadDeck({ token, id: id }));
         dispatch(getCards({ token, id: id }));
@@ -29,8 +26,6 @@ export default function DeckPage() {
 
     const deck = useAppSelector((state) => state.deck);
     const cards = useAppSelector((state) => state.cards);
-
-    console.log(cards);
 
     return (
         <div>

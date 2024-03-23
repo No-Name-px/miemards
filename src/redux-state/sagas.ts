@@ -6,6 +6,8 @@ import watchTop from './features/top/sagas';
 import watchDecks from './features/decks/sagas';
 import watchCards from './features/cards/sagas';
 import watchBankCards from './features/bankCards/sagas';
+import watchInterests from './features/interests/saga';
+import watchPosts from './features/posts/saga';
 
 export default function* rootSaga() {
     yield all([
@@ -16,5 +18,7 @@ export default function* rootSaga() {
         watchDecks(),
         watchCards(),
         watchBankCards(),
+        watchInterests(),
+        watchPosts(),
     ]);
 }

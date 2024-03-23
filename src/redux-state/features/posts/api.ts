@@ -7,9 +7,9 @@ import {
     postByUserFetchURL,
 } from 'redux-state/constants';
 import { ContentTypes } from '../../api';
-import { AccountDataSend } from 'types';
+import { AccountDataSend, PostReq } from 'types';
 
-export function createPostRequest(data: AccountDataSend, token: string) {
+export function createPostRequest(data: PostReq, token: string) {
     return axios({
         url: createPostFetchURL,
         method: 'POST',
@@ -32,11 +32,7 @@ export function postByIdRequest(id: string, token: string) {
     });
 }
 
-export function updatePostRequest(
-    id: string,
-    data: AccountDataSend,
-    token: string
-) {
+export function updatePostRequest(id: string, data: PostReq, token: string) {
     return axios({
         url: editPostFetchURL(id),
         method: 'PATCH',
@@ -59,7 +55,7 @@ export function deletePostRequest(id: string, token: string) {
     });
 }
 
-export function postByUserRequest(token: string) {
+export function postsByUserRequest(token: string) {
     return axios({
         url: postByUserFetchURL,
         method: 'GET',

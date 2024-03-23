@@ -35,6 +35,30 @@ export default function ActionButtonProvider() {
                     </NavLink>
                 }
             />
+            <Route
+                path="profile/interests"
+                element={
+                    <NavLink to="create" className={styles.link}>
+                        <ActionButton title="Интерес" icon={Plus} />
+                    </NavLink>
+                }
+            />
+            <Route
+                path="profile/posts"
+                element={
+                    <NavLink to="create" className={styles.link}>
+                        <ActionButton title="Запись" icon={Plus} />
+                    </NavLink>
+                }
+            />
+            <Route
+                path="profile/bankCards"
+                element={
+                    <NavLink to="create" className={styles.link}>
+                        <ActionButton title="Карту" icon={Plus} />
+                    </NavLink>
+                }
+            />
             <Route path="decks/create" element={<ActionButton invisible />} />
             <Route path="*" element={<ActionButton invisible />}></Route>
         </Routes>

@@ -39,17 +39,19 @@
     .cardsContainer {
         grid-template-columns: 1fr 1fr;
     }
-    .buttonsContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 0;
-        width: 100%;
-    }
 }
 
 @media screen and (min-width: 900px) {
     .cardsContainer {
         grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .buttonsContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
     }
 }

@@ -16,3 +16,5 @@ export const loginPath = '/auth/login';
 
 export const profilePath = '/profile';
 export const profilePathEdit = '/profile/edit';
+export const profileInterestsPath = '/profile/interests';
+export const profilePostsPath = '/profile/posts';

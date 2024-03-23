@@ -7,6 +7,10 @@ import {
     Cards,
     BankCards,
     Card,
+    Interest,
+    Interests,
+    Posts,
+    Post,
 } from 'types';
 import { AuthReducer } from './features/auth/reducers';
 import { UserReducer } from './features/user/reducers';
@@ -16,6 +20,8 @@ import { combineReducers } from 'redux';
 import { AnalyticsReducer } from './features/analytics/reducers';
 import { TopReducer } from './features/top/reducers';
 import { BankCardsReducer } from './features/bankCards/slice';
+import { InterestReducer, InterestsReducer } from './actions';
+import { PostReducer, PostsReducer } from './features/posts/slice';
 
 export interface RootReducer {
     user: User | null;
@@ -27,6 +33,10 @@ export interface RootReducer {
     analytics: Analytics | null;
     top: Top | null;
     bankCards: BankCards;
+    interests: Interests;
+    interest: Interest;
+    posts: Posts;
+    post: Post;
 }
 
 const rootReducer = combineReducers<RootReducer>({
@@ -39,6 +49,10 @@ const rootReducer = combineReducers<RootReducer>({
     analytics: AnalyticsReducer as any,
     top: TopReducer as any,
     bankCards: BankCardsReducer as any,
+    interests: InterestsReducer as any,
+    interest: InterestReducer as any,
+    posts: PostsReducer as any,
+    post: PostReducer as any,
 });
 
 export default rootReducer;

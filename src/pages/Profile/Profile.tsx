@@ -14,7 +14,7 @@ import Header from 'components/Header';
 import { useAppDispatch, useAppSelector } from 'redux-state';
 import { useCallback, useEffect } from 'react';
 import { AuthActions, UserActions } from 'redux-state/actions';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export default function Profile() {
     const user = useAppSelector((state) => state.user);
@@ -51,24 +51,36 @@ export default function Profile() {
                         <IconInfo icon={Home}>
                             <p>{user?.country}</p>
                         </IconInfo>
-                        <IconInfo icon={Cards}>
-                            <div className={styles.navLink}>
-                                <p>Банковские карты</p>
-                                <NextArrow fill="var(--accent-1)"></NextArrow>
-                            </div>
-                        </IconInfo>
-                        <IconInfo icon={Chess}>
-                            <div className={styles.navLink}>
-                                <p>Интересы</p>
-                                <NextArrow fill="var(--accent-1)"></NextArrow>
-                            </div>
-                        </IconInfo>
-                        <IconInfo icon={Paper}>
-                            <div className={styles.navLink}>
-                                <p>Посты</p>
-                                <NextArrow fill="var(--accent-1)"></NextArrow>
-                            </div>
-                        </IconInfo>
+                        <NavLink
+                            to="bankCards"
+                            className={styles.navLinkContainer}
+                        >
+                            <IconInfo icon={Cards}>
+                                <div className={styles.navLink}>
+                                    <p>Банковские карты</p>
+                                    <NextArrow fill="var(--accent-1)"></NextArrow>
+                                </div>
+                            </IconInfo>
+                        </NavLink>
+                        <NavLink
+                            to="interests"
+                            className={styles.navLinkContainer}
+                        >
+                            <IconInfo icon={Chess}>
+                                <div className={styles.navLink}>
+                                    <p>Интересы</p>
+                                    <NextArrow fill="var(--accent-1)"></NextArrow>
+                                </div>
+                            </IconInfo>
+                        </NavLink>
+                        <NavLink to="posts" className={styles.navLinkContainer}>
+                            <IconInfo icon={Paper}>
+                                <div className={styles.navLink}>
+                                    <p>Посты</p>
+                                    <NextArrow fill="var(--accent-1)"></NextArrow>
+                                </div>
+                            </IconInfo>
+                        </NavLink>
                     </div>
                     <div className={styles.buttonContainer}>
                         <Button type="cancel" onClick={onDelete}>

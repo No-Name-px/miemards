@@ -38,6 +38,12 @@ import {
 import { ProtectedRoute } from './components/ProtectedRoute';
 import CardCreate from 'pages/CardCreate';
 import BankCards from 'pages/additional/BankCards';
+import InterestsPage from 'pages/InterestsInfo';
+import InterestCreate from 'pages/InterestCreate';
+import InterestEdit from 'pages/InerestEdit';
+import PostsPage from 'pages/PostInfo';
+import PostCreate from 'pages/PostCreate';
+import PostEdit from 'pages/PostEdit';
 // import { history } from 'redux';
 
 const router = createBrowserRouter(
@@ -212,6 +218,54 @@ const router = createBrowserRouter(
                     element={
                         <ProtectedRoute>
                             <BankCards />
+                        </ProtectedRoute>
+                    }
+                ></Route>
+                <Route
+                    path={'profile/interests'}
+                    element={
+                        <ProtectedRoute>
+                            <InterestsPage />
+                        </ProtectedRoute>
+                    }
+                ></Route>
+                <Route
+                    path={'profile/interests/create'}
+                    element={
+                        <ProtectedRoute>
+                            <InterestCreate />
+                        </ProtectedRoute>
+                    }
+                ></Route>
+                <Route
+                    path={'profile/interests/:id'}
+                    element={
+                        <ProtectedRoute>
+                            <InterestEdit />
+                        </ProtectedRoute>
+                    }
+                ></Route>
+                <Route
+                    path={'profile/posts'}
+                    element={
+                        <ProtectedRoute>
+                            <PostsPage />
+                        </ProtectedRoute>
+                    }
+                ></Route>
+                <Route
+                    path={'profile/posts/create'}
+                    element={
+                        <ProtectedRoute>
+                            <PostCreate />
+                        </ProtectedRoute>
+                    }
+                ></Route>
+                <Route
+                    path={'profile/posts/:id'}
+                    element={
+                        <ProtectedRoute>
+                            <PostEdit />
                         </ProtectedRoute>
                     }
                 ></Route>

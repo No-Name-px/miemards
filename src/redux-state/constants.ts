@@ -7,3 +7,4 @@ export * from './features/cards/constants';
 export * from './features/interests/constants';
 export * from './features/posts/constants';
 export * from './features/bankCards/constants';
+export * from './features/posts/constants';

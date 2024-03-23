@@ -1,36 +1,66 @@
-import { Interest } from 'types';
+import { Interest, Interests, Token, withRedirect } from 'types';
 
-const initialStateCards: Interest[] = [];
+const initialStateInterests: Interests = {};
 
-const initialStateActiveCard: Interest = {
+const initialStateActiveInterest: Interest = {
     name: '',
     description: '',
 };
 
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-const decksSlice = createSlice({
+const interestsSlice = createSlice({
     name: 'Interests',
-    initialState: initialStateCards,
+    initialState: initialStateInterests,
     reducers: {
-        setInterest: (state, action: PayloadAction<Interest[]>) => {
+        setInterests: (state, action: PayloadAction<Interests>) => {
             return action.payload;
         },
-        get,
+        getInterests: (state, action: PayloadAction<Token>) => {},
     },
 });
 
-const cardSlice = createSlice({
+const interestSlice = createSlice({
     name: 'Interest',
-    initialState: initialStateActiveCard,
+    initialState: initialStateActiveInterest,
     reducers: {
-        setCard: (state, action: PayloadAction<Interest>) => {
+        setInterest: (state, action: PayloadAction<Interest>) => {
             return action.payload;
+        },
+        getInterest: (
+            state,
+            action: PayloadAction<{ id: string } & Token>
+        ) => {},
+        createInterest: (
+            state,
+            action: PayloadAction<withRedirect<Interest> & Token>
+        ) => {
+            return state;
+        },
+        updateInterest: (
+            state,
+            action: PayloadAction<
+                withRedirect<Interest & { id: string }> & Token
+            >
+        ) => {
+            return state;
+        },
+        deleteInterest: (
+            state,
+            action: PayloadAction<withRedirect<string> & Token>
+        ) => {
+            return state;
         },
     },
 });
 
-export const CardsReducer = decksSlice.reducer;
-export const CardReducer = cardSlice.reducer;
-export const {} = decksSlice.actions;
-export const {} = cardSlice.actions;
+export const InterestsReducer = interestsSlice.reducer;
+export const InterestReducer = interestSlice.reducer;
+export const { setInterests, getInterests } = interestsSlice.actions;
+export const {
+    setInterest,
+    getInterest,
+    createInterest,
+    updateInterest,
+    deleteInterest,
+} = interestSlice.actions;

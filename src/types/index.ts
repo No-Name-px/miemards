@@ -7,3 +7,4 @@ export * from './accounts';
 export * from './cards';
 export * from './additional';
 export * from './interests';
+export * from './posts';

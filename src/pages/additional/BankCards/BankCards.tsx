@@ -20,7 +20,7 @@ interface FromVales {
     number: string;
 }
 
-export default function Decks() {
+export default function BankCardsPage() {
     const dispatch = useAppDispatch();
 
     const token = useAppSelector((state) => state.auth);

@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Card from 'components/Card';
 import Container from 'components/Container';
 import Header from 'components/Header';

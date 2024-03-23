@@ -7,6 +7,7 @@ interface Props {
     className?: string;
     size?: keyof typeof ButtonSizeEnum;
     onClick?: () => void;
+    disabled?: boolean;
 }
 
 export default function Button(props: React.PropsWithChildren<Props>) {
@@ -16,6 +17,7 @@ export default function Button(props: React.PropsWithChildren<Props>) {
         className,
         onClick,
         size = ButtonSizeEnum.m,
+        disabled = false,
     } = props;
     return (
         <>
@@ -29,6 +31,7 @@ export default function Button(props: React.PropsWithChildren<Props>) {
                     [styles.sizeS]: size === ButtonSizeEnum.s,
                 })}
                 onClick={onClick}
+                disabled={disabled}
             >
                 {children}
             </button>

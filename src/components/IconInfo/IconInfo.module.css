@@ -6,4 +6,5 @@
 
 .content {
     margin-left: var(--spacing-s);
+    flex-grow: 1;
 }

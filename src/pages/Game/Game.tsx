@@ -124,13 +124,13 @@ export default function PlayPage() {
                                             {currentCard.explanation}
                                         </TextSecondary>
 
-                                        {/* {currentCard.img && (
-                                    <Image
-                                        src={currentCard.img}
-                                        alt="cardImg"
-                                        className={styles.img}
-                                    ></Image>
-                                )} */}
+                                        {currentCard.image && (
+                                            <Image
+                                                src={currentCard.image}
+                                                alt="cardImg"
+                                                className={styles.img}
+                                            ></Image>
+                                        )}
                                     </Card>
                                     {!isHidden && (
                                         <Card>

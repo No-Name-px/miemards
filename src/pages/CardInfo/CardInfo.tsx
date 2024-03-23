@@ -57,9 +57,12 @@ export default function CardPage() {
                                 <TextSecondary>
                                     {card.explanation}
                                 </TextSecondary>
-                                {/* {card.img && (
-                                    <Image src={card.img} alt="cardImg"></Image>
-                                )} */}
+                                {card.image && (
+                                    <Image
+                                        src={card.image}
+                                        alt="cardImg"
+                                    ></Image>
+                                )}
                             </Card>
                             <Card>
                                 <TextTitle>Задняя сторона</TextTitle>

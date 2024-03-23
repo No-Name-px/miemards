@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from 'redux-state';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextArea from 'components/TextArea';
-import { createDeck } from 'redux-state/actions';
+import { UserActions, createDeck } from 'redux-state/actions';
 
 interface FormValues {
     name: string;
@@ -45,6 +45,13 @@ export default function DeckPageCreate() {
         []
     );
 
+    const handleGenerateDeck = useCallback(() => {
+        if (!token || formValues.name === '') return;
+        dispatch(
+            UserActions.generateDeck({ data: formValues.name, token, navigate })
+        );
+    }, [token, formValues, navigate, dispatch]);
+
     return (
         <>
             <Container>
@@ -68,7 +75,9 @@ export default function DeckPageCreate() {
                         ></TextArea>
                     </div>
                     <div className={styles.buttons}>
-                        <Button>Сгенерировать 20 слов</Button>
+                        <Button onClick={handleGenerateDeck}>
+                            Сгенерировать колоду
+                        </Button>
                         <Button type="accent" onClick={handleSubmit}>
                             Создать
                         </Button>

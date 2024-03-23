@@ -29,7 +29,7 @@ export default function RatingPageInner(props: Props) {
         <div className={styles.cardsContainer}>
             {currentTop &&
                 (currentTop.length === 0 ? (
-                    <TextSecondary>
+                    <TextSecondary className={styles.text}>
                         Пока топа за этот период нет, будь первым!
                     </TextSecondary>
                 ) : (
@@ -47,7 +47,7 @@ export default function RatingPageInner(props: Props) {
                                     {user.words_learned} слов
                                 </ProgressCounter>
                             </div>
-                            <TextPrimary>{'lol'}</TextPrimary>
+                            <TextPrimary>{user.country}</TextPrimary>
                         </CardIconed>
                     ))
                 ))}

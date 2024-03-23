@@ -11,13 +11,13 @@ import { useCallback, useEffect, useState } from 'react';
 import Button from 'components/Button';
 import Image from 'components/Image';
 import { useAppDispatch, useAppSelector } from 'redux-state';
-import { editCard, loadCard } from 'redux-state/actions';
-
-interface FormValues {
-    english_word: string;
-    translation: string;
-    explanation: string;
-}
+import {
+    editCard,
+    getImage,
+    getTranslation,
+    loadCard,
+} from 'redux-state/actions';
+import { CardFormValues } from 'types';
 
 export default function CardPageEdit() {
     const { deckId, cardId } = useParams();
@@ -27,7 +27,7 @@ export default function CardPageEdit() {
     const token = useAppSelector((state) => state.auth);
     const card = useAppSelector((state) => state.card);
 
-    const [formValues, setFormValues] = useState<FormValues>({
+    const [formValues, setFormValues] = useState<CardFormValues>({
         translation: '',
         english_word: '',
         explanation: '',
@@ -39,13 +39,12 @@ export default function CardPageEdit() {
     }, [dispatch, cardId, token]);
 
     useEffect(() => {
-        if (card.translation && card.english_word && card.explanation) {
-            setFormValues({
-                translation: card.translation,
-                english_word: card.english_word,
-                explanation: card.explanation,
-            });
-        }
+        setFormValues({
+            translation: card.translation,
+            english_word: card.english_word,
+            explanation: card.explanation,
+            image: card.image,
+        });
     }, [card, setFormValues]);
 
     const handleUpdate = useCallback(() => {
@@ -59,6 +58,7 @@ export default function CardPageEdit() {
                     explanation: formValues.explanation,
                     english_word: formValues.english_word,
                     translation: formValues.translation,
+                    image: formValues.image,
                 },
                 navigate,
             })
@@ -66,11 +66,21 @@ export default function CardPageEdit() {
     }, [navigate, token, cardId, deckId, dispatch, formValues]);
 
     const handleChangeFromValues = useCallback(
-        (key: keyof FormValues, value: string) => {
+        (key: keyof CardFormValues, value: string) => {
             setFormValues((state) => ({ ...state, [key]: value }));
         },
         []
     );
+
+    const handleGetTranslation = useCallback(() => {
+        if (!token || formValues.translation === '') return;
+        dispatch(getTranslation({ card: formValues, token }));
+    }, [token, dispatch, formValues]);
+
+    const handleGetImage = useCallback(() => {
+        if (!token || formValues.translation === '') return;
+        dispatch(getImage({ card: formValues, token }));
+    }, [token, dispatch, formValues]);
 
     return (
         <div>
@@ -107,14 +117,16 @@ export default function CardPageEdit() {
                                         label="Обьяснение слова"
                                         rows={3}
                                     ></TextArea>
-                                    {/* {card.img ? (
+                                    {card.image ? (
                                         <Image
-                                            src={card.img}
+                                            src={card.image}
                                             alt="cardImg"
                                         ></Image>
                                     ) : (
-                                        <Button>Сгенерировать картинку</Button>
-                                    )} */}
+                                        <Button onClick={handleGetImage}>
+                                            Сгенерировать картинку
+                                        </Button>
+                                    )}
                                 </div>
                             </Card>
                             <Card>
@@ -133,7 +145,10 @@ export default function CardPageEdit() {
                                     ></Input>
                                 </div>
                             </Card>
-                            <Button type="default">
+                            <Button
+                                type="default"
+                                onClick={handleGetTranslation}
+                            >
                                 Сгенерировать перевод
                             </Button>
                             <Button type="accent" onClick={handleUpdate}>

@@ -18,11 +18,14 @@ import {
     deleteDeck,
     removeDeck,
     editDeck,
+    generateCardForDeck,
+    getCards,
 } from 'redux-state/actions';
 import { showToast } from 'utiles';
 import {
     createDeckRequest,
     deckByIdRequest,
+    deckCardGenerationRequest,
     decksByUserRequest,
     deleteDeckRequest,
     updateDeckRequest,
@@ -144,10 +147,40 @@ function* UpdateDeckWorker(action: Action<withRedirect<AddDeck> & Token>) {
     }
 }
 
+function* generateCardForDeckWorker(
+    action: Action<withRedirect<{ deckId: string; word: string }> & Token>
+) {
+    try {
+        yield call(
+            deckCardGenerationRequest,
+            action.payload.data.word,
+            action.payload.data.deckId,
+            action.payload.token
+        );
+        yield put(
+            getCards({
+                id: action.payload.data.deckId,
+                token: action.payload.token,
+            })
+        );
+        action.payload.navigate('');
+    } catch (error: any) {
+        console.log(error);
+        const massageArray =
+            typeof error.response.data.detail !== 'string'
+                ? error.response.data.detail?.map((det: any) => det.msg)
+                : [error.response.data.detail] || ['Неизвестная ошибка'];
+        for (const msg of massageArray) {
+            showToast(msg, 'error');
+        }
+    }
+}
+
 export default function* watchDecks() {
     yield takeLatest(getDecks, GetDecksWorker);
     yield takeLatest(loadDeck, GetDeckWorker);
     yield takeLatest(createDeck, CreateDeckWorker);
     yield takeLatest(deleteDeck, DeleteDeckWorker);
     yield takeLatest(editDeck, UpdateDeckWorker);
+    yield takeLatest(generateCardForDeck, generateCardForDeckWorker);
 }

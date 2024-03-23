@@ -6,3 +6,4 @@ export * from './top';
 export * from './accounts';
 export * from './cards';
 export * from './additional';
+export * from './interests';

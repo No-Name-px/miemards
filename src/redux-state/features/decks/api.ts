@@ -67,9 +67,13 @@ export function decksByUserRequest(token: string) {
     });
 }
 
-export function deckCardGenerationRequest(id: string, token: string) {
+export function deckCardGenerationRequest(
+    word: string,
+    deckId: string,
+    token: string
+) {
     return axios({
-        url: generateCardForDeckFetchURL(id),
+        url: generateCardForDeckFetchURL(word, deckId),
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,

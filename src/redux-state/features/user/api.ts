@@ -5,6 +5,7 @@ import {
     userPatchURL,
     userGetURL,
     userDeleteURL,
+    generateDeckURL,
 } from 'redux-state/features/user/constants';
 
 export function userGetRequest(token: string) {
@@ -34,6 +35,17 @@ export function userDeleteRequest(token: string) {
     return axios({
         url: userDeleteURL,
         method: 'DELETE',
+        headers: {
+            'Content-Type': ContentTypes.APPLICATION_JSON,
+            Authorization: `Bearer ${token}`,
+        },
+    });
+}
+
+export function generateDeckRequest(word: string, token: string) {
+    return axios({
+        url: generateDeckURL(word),
+        method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
             Authorization: `Bearer ${token}`,

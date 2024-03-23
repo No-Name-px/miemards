@@ -68,9 +68,9 @@ export function cardsByDeckRequest(deckid: string, token: string) {
     });
 }
 
-export function cardTranslationRequest(id: string, token: string) {
+export function cardTranslationRequest(word: string, token: string) {
     return axios({
-        url: generateCardTranslateFetchURL(id),
+        url: generateCardTranslateFetchURL(word),
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,
@@ -79,9 +79,9 @@ export function cardTranslationRequest(id: string, token: string) {
     });
 }
 
-export function cardImageRequest(id: string, token: string) {
+export function cardImageRequest(word: string, token: string) {
     return axios({
-        url: generateCardImageFetchURL(id),
+        url: generateCardImageFetchURL(word),
         method: 'GET',
         headers: {
             'Content-Type': ContentTypes.APPLICATION_JSON,

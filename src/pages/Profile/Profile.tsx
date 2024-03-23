@@ -5,7 +5,11 @@ import Page from 'components/Page';
 import styles from './Profile.module.css';
 import Phone from 'assets/icons/phone.svg?react';
 import Mail from 'assets/icons/letter.svg?react';
+import NextArrow from '../../assets/icons/chevron-right.svg?react';
 import Home from 'assets/icons/home.svg?react';
+import Paper from 'assets/icons/paper-long.svg?react';
+import Cards from 'assets/icons/cards.svg?react';
+import Chess from 'assets/icons/chess.svg?react';
 import Header from 'components/Header';
 import { useAppDispatch, useAppSelector } from 'redux-state';
 import { useCallback, useEffect } from 'react';
@@ -46,6 +50,24 @@ export default function Profile() {
                         </IconInfo>
                         <IconInfo icon={Home}>
                             <p>{user?.country}</p>
+                        </IconInfo>
+                        <IconInfo icon={Cards}>
+                            <div className={styles.navLink}>
+                                <p>Банковские карты</p>
+                                <NextArrow fill="var(--accent-1)"></NextArrow>
+                            </div>
+                        </IconInfo>
+                        <IconInfo icon={Chess}>
+                            <div className={styles.navLink}>
+                                <p>Интересы</p>
+                                <NextArrow fill="var(--accent-1)"></NextArrow>
+                            </div>
+                        </IconInfo>
+                        <IconInfo icon={Paper}>
+                            <div className={styles.navLink}>
+                                <p>Посты</p>
+                                <NextArrow fill="var(--accent-1)"></NextArrow>
+                            </div>
                         </IconInfo>
                     </div>
                     <div className={styles.buttonContainer}>

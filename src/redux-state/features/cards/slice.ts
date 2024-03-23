@@ -1,5 +1,6 @@
 import {
     Card,
+    CardFormValues,
     Cards,
     CreateCard,
     GetCard,
@@ -20,7 +21,7 @@ const initialStateActiveCard: Card = {
 
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-const decksSlice = createSlice({
+const cardsSlice = createSlice({
     name: 'Cards',
     initialState: initialStateCards,
     reducers: {
@@ -56,14 +57,33 @@ const cardSlice = createSlice({
     initialState: initialStateActiveCard,
     reducers: {
         setCard: (state, action: PayloadAction<Card>) => {
-            console.log(action.payload);
             return action.payload;
         },
         loadCard: (state, action: PayloadAction<GetCard>) => state,
+        getTranslation: (
+            state,
+            action: PayloadAction<{ card: CardFormValues } & Token>
+        ) => state,
+        setTranslation: (state, action: PayloadAction<CardFormValues>) => {
+            return {
+                ...state,
+                ...action.payload,
+            };
+        },
+        getImage: (
+            state,
+            action: PayloadAction<{ card: CardFormValues } & Token>
+        ) => state,
+        setImage: (state, action: PayloadAction<CardFormValues>) => {
+            return {
+                ...state,
+                ...action.payload,
+            };
+        },
     },
 });
 
-export const CardsReducer = decksSlice.reducer;
+export const CardsReducer = cardsSlice.reducer;
 export const CardReducer = cardSlice.reducer;
 export const {
     setCards,
@@ -73,5 +93,12 @@ export const {
     deleteCard,
     removeCard,
     editCard,
-} = decksSlice.actions;
-export const { loadCard, setCard } = cardSlice.actions;
+} = cardsSlice.actions;
+export const {
+    loadCard,
+    setCard,
+    getTranslation,
+    setTranslation,
+    getImage,
+    setImage,
+} = cardSlice.actions;

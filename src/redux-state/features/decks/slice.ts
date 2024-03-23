@@ -58,10 +58,15 @@ const deckSlice = createSlice({
     initialState: initialStateActiveDeck,
     reducers: {
         setDeck: (state, action: PayloadAction<Deck>) => {
-            // console.log(action.payload);
             return action.payload;
         },
         loadDeck: (state, action: PayloadAction<GetDeck>) => state,
+        generateCardForDeck: (
+            state,
+            action: PayloadAction<
+                withRedirect<{ deckId: string; word: string }> & Token
+            >
+        ) => state,
     },
 });
 
@@ -76,4 +81,4 @@ export const {
     removeDeck,
     editDeck,
 } = decksSlice.actions;
-export const { loadDeck, setDeck } = deckSlice.actions;
+export const { loadDeck, setDeck, generateCardForDeck } = deckSlice.actions;

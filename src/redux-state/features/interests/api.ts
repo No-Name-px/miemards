@@ -7,9 +7,9 @@ import {
     interestByUserFetchURL,
 } from 'redux-state/constants';
 import { ContentTypes } from '../../api';
-import { AccountDataSend } from 'types';
+import { Interest } from 'types';
 
-export function createInterestRequest(data: AccountDataSend, token: string) {
+export function createInterestRequest(data: Interest, token: string) {
     return axios({
         url: createInterestFetchURL,
         method: 'POST',
@@ -34,7 +34,7 @@ export function interestByIdRequest(id: string, token: string) {
 
 export function updateInterestRequest(
     id: string,
-    data: AccountDataSend,
+    data: Interest,
     token: string
 ) {
     return axios({

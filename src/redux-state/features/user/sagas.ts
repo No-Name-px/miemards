@@ -3,8 +3,13 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { type Action } from 'redux-actions';
 import { Register, Token, withRedirect } from 'types';
 import { showToast } from 'utiles';
-import { userDeleteRequest, userGetRequest, userUpdateRequest } from './api';
-import { profilePath } from 'router/constants';
+import {
+    generateDeckRequest,
+    userDeleteRequest,
+    userGetRequest,
+    userUpdateRequest,
+} from './api';
+import { allDecksPath, profilePath } from 'router/constants';
 
 function* UpdateUserWorker(
     action: Action<withRedirect<Register & { id: string }> & Token>
@@ -44,8 +49,23 @@ function* DeleteUserWorker(action: Action<withRedirect<Token>>) {
     }
 }
 
+function* GenerateDeckWorker(action: Action<withRedirect<string> & Token>) {
+    try {
+        yield call(
+            generateDeckRequest,
+            action.payload.data,
+            action.payload.token
+        );
+        action.payload.navigate(allDecksPath);
+    } catch (error: any) {
+        console.log(error);
+        showToast(error.toString(), 'error');
+    }
+}
+
 export default function* watchUser() {
     yield takeLatest(UserActions.Type.UPDATE, UpdateUserWorker);
     yield takeLatest(UserActions.Type.GET_USER, GetUserWorker);
     yield takeLatest(UserActions.Type.DELETE_USER, DeleteUserWorker);
+    yield takeLatest(UserActions.Type.GENERATE_DECK, GenerateDeckWorker);
 }

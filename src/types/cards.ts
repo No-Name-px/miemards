@@ -6,6 +6,7 @@ export interface Card {
     translation: string;
     explanation: string;
     id: string;
+    image?: string | null;
 }
 
 export interface Cards {
@@ -26,4 +27,12 @@ export interface CreateCard {
     translation: string;
     explanation: string;
     deck_id: string;
+    image: string | null;
+}
+
+export interface CardFormValues {
+    english_word: string;
+    translation: string;
+    explanation: string;
+    image?: string | null;
 }

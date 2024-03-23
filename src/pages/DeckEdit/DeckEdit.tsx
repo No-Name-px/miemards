@@ -18,6 +18,7 @@ import {
     deleteCard,
     deleteDeck,
     editDeck,
+    generateCardForDeck,
     getCards,
     loadDeck,
 } from 'redux-state/actions';
@@ -50,7 +51,7 @@ export default function DeckPageEdit() {
     }, [token, dispatch, id]);
 
     useEffect(() => {
-        if (deck?.name && deck.description) {
+        if (deck?.name) {
             setFormValues({
                 name: deck.name,
                 description: deck.description,
@@ -97,6 +98,20 @@ export default function DeckPageEdit() {
         if (!token || !id) return;
         dispatch(deleteDeck({ token, data: id, navigate }));
     }, [navigate, token, id, dispatch]);
+
+    const handleGenerateCardForDeck = useCallback(() => {
+        if (!token || !formValues.name || !id) return;
+        dispatch(
+            generateCardForDeck({
+                token,
+                data: {
+                    word: formValues.name,
+                    deckId: id,
+                },
+                navigate,
+            })
+        );
+    }, [navigate, token, dispatch, formValues, id]);
 
     return (
         <div>
@@ -188,7 +203,9 @@ export default function DeckPageEdit() {
                                 ))}
                             </div>
                             <div className={styles.buttonsContainer}>
-                                <Button>Сгенерировать рекомендации</Button>
+                                <Button onClick={handleGenerateCardForDeck}>
+                                    Сгенерировать рекомендации
+                                </Button>
                                 <Button type="cancel" onClick={handleDelete}>
                                     Удалить колоду
                                 </Button>
